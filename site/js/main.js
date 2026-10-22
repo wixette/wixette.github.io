@@ -18,7 +18,6 @@ const $ = (sel) => /** @type {HTMLElement} */ (document.querySelector(sel));
 const applyTexts = () => {
   for (const el of document.querySelectorAll('[data-i18n]')) el.textContent = t(/** @type {Key} */ (/** @type {HTMLElement} */ (el).dataset.i18n));
   for (const el of document.querySelectorAll('[data-i18n-aria]')) el.setAttribute('aria-label', t(/** @type {Key} */ (/** @type {HTMLElement} */ (el).dataset.i18nAria)));
-  $('.count').textContent = t('intro.count', { n: SHOWCASES.length });
   document.title = t('meta.title');
   document.querySelector('meta[name="description"]')?.setAttribute('content', t('meta.description'));
   for (const b of document.querySelectorAll('.lang button')) b.setAttribute('aria-pressed', String(/** @type {HTMLElement} */ (b).dataset.lang === lang()));
@@ -41,20 +40,11 @@ initAbout(/** @type {HTMLDialogElement} */ ($('#about')), aboutButton);
 
 const grid = $('#grid');
 const tiles = createTiles(grid, SHOWCASES);
-const solver = $('.solver');
-/** @type {{ cols: number; rows: number; ms: number }} */
-const last = { cols: 0, rows: 0, ms: 0 };
-const showSolver = () => (solver.textContent = t('footer.grid', { cols: last.cols, rows: last.rows, ms: last.ms.toFixed(2) }));
 liveGrid(
   grid,
   SHOWCASES.map((s) => ({ id: s.id, emphasis: s.emphasis })),
   (id) => /** @type {HTMLElement} */ (tiles.find((tile) => tile.showcase.id === id)?.el),
-  (layout, ms) => {
-    Object.assign(last, { cols: layout.columns, rows: layout.rows, ms });
-    showSolver();
-  },
 );
-onLang(showSolver);
 
 // The top bar gets its hairline once the page scrolls under it.
 const topbar = $('.topbar');

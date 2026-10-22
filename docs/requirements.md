@@ -65,7 +65,7 @@ A footer with the copyright line and the licences.
 
 | # | Requirement |
 |---|---|
-| R7.1 | Dark only: a true black page; Material 3 dark tonal surfaces for the top bar and the dialog. |
+| R7.1 | Dark only: a deep dark vertical gradient behind the page (black and one or two deep shades that suit the accent); a half-transparent top bar and footer over it; Material 3 dark tonal surfaces for the dialog. |
 | R7.2 | Follows Material Design for components, states, focus and accessibility; the tile grid follows Metro's live tiles. |
 | R7.3 | Bold and geeky, aimed at young engineers: strong per-project colours, chunky type, monospace details. |
 

@@ -15,7 +15,6 @@ export const STRINGS = {
     'intro.cmd': 'ls ~/open-source',
     'intro.line1': 'Things I build',
     'intro.line2': 'in the open.',
-    'intro.count': '{n} projects',
     'grid.label': 'Projects',
     'tile.github': 'GitHub',
     'tile.try': 'Try it',
@@ -24,7 +23,6 @@ export const STRINGS = {
     'footer.copyright': '© 2026 Yonggang Wang',
     'footer.licence': 'Code Apache-2.0 · Art CC BY-SA 4.0',
     'footer.source': 'Source',
-    'footer.grid': 'grid {cols}×{rows} · solved in {ms} ms',
   },
   zh: {
     'meta.title': 'wixette 的开源作品',
@@ -38,7 +36,6 @@ export const STRINGS = {
     'intro.cmd': 'ls ~/open-source',
     'intro.line1': '在开源世界里，',
     'intro.line2': '造点好玩的东西。',
-    'intro.count': '{n} 个项目',
     'grid.label': '项目',
     'tile.github': 'GitHub',
     'tile.try': '试一试',
@@ -47,6 +44,5 @@ export const STRINGS = {
     'footer.copyright': '© 2026 Yonggang Wang',
     'footer.licence': '代码 Apache-2.0 · 美术 CC BY-SA 4.0',
     'footer.source': '源代码',
-    'footer.grid': '网格 {cols}×{rows} · 求解 {ms} 毫秒',
   },
 };

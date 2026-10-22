@@ -84,15 +84,18 @@ icons come from npm and are copied into `site/vendor/` by `pnpm vendor`, or inli
 │ ├─────┬────┴──────────┴───────────┤                      │
 │ └─────┴───────────────────────────┘                      │
 ├──────────────────────────────────────────────────────────┤
-│ © 2026 …  · Apache-2.0 / CC BY-SA 4.0 · grid 4×3 in 0.1 ms│  footer, mono
+│ © 2026 … / Code Apache-2.0 · Art CC BY-SA 4.0 / Source    │  footer, mono
 └──────────────────────────────────────────────────────────┘
 ```
 
 ## 4. Visual design
 
-**D6. Black, loud colour, chunky type.** The page is true black (`#000`), so the paper
-animations glow like lit windows. Surfaces that float (top bar, dialog, menus) use Material 3
-dark tonal surfaces, a little lighter than black. On top of that:
+**D6. Deep dark, loud colour, chunky type.** The page is a deep vertical gradient,
+interpolated in OKLab: black at the top, a deep indigo (`#120e33`, the complement of the
+lime accent) through the middle, a deep moss (`#142409`, the lime's own hue, darkened) at the
+bottom. It stays dark enough that the paper animations glow like lit windows. The top bar and
+the footer are half-transparent black with a backdrop blur, so the gradient shows through;
+the dialog uses a Material 3 dark tonal surface. On top of that:
 
 - **One acid-lime site accent** (`#d4ff3a`) for focus rings, the prompt cursor, the active
   language and links in the dialog.
@@ -168,8 +171,7 @@ Then `chooseLayout` compares the column counts the width allows (2 to 8, cells b
   heights, times 8, so a wide screen shows every tile at once when it can.
 
 The cheapest overall wins. For 5 to 20 tiles this takes well under
-a millisecond, so it runs in the browser on every resize; the footer shows the result
-(`grid 4×3 · 0.08 ms`).
+a millisecond, so it runs in the browser on every resize.
 
 If a set of tiles ever has no perfect packing at some width, the solver reports it and the
 grid falls back to the best packing with a ragged last row. `tests/layout.test.js` checks the

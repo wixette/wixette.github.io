@@ -3,8 +3,12 @@
 :root {
   color-scheme: dark;
 
-  /* Material 3 dark, on a true black page */
+  /* Material 3 dark surfaces, over a deep vertical gradient: black at the top, a deep
+     indigo (the lime accent's complement) through the middle, a deep moss (the lime's own
+     hue, darkened) at the bottom */
   --bg: #000;
+  --bg-mid: #120e33;
+  --bg-end: #142409;
   --surface-1: #0e0f11;
   --surface-2: #15171a;
   --surface-3: #1c1f24;
@@ -45,7 +49,8 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--bg);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-mid) 52%, var(--bg-end) 100%);
+  background: linear-gradient(in oklab 180deg, var(--bg) 0%, var(--bg-mid) 52%, var(--bg-end) 100%);
   color: var(--on);
   font-family: var(--font);
   font-size: 16px;
@@ -94,7 +99,7 @@ a {
   gap: 16px;
   height: 64px;
   padding: 0 var(--page-pad);
-  background: rgb(0 0 0 / 0.72);
+  background: rgb(0 0 0 / 0.45);
   -webkit-backdrop-filter: blur(16px) saturate(1.4);
   backdrop-filter: blur(16px) saturate(1.4);
   border-bottom: 1px solid transparent;
@@ -102,8 +107,8 @@ a {
 }
 
 .topbar.scrolled {
-  background: rgb(14 15 17 / 0.82);
-  border-bottom-color: var(--outline);
+  background: rgb(6 6 14 / 0.55);
+  border-bottom-color: rgb(255 255 255 / 0.08);
 }
 
 .brand {
@@ -258,16 +263,6 @@ main {
 }
 
 :lang(zh) .headline .hl {
-  font-style: normal;
-}
-
-.headline .count {
-  display: inline-block;
-  margin-left: 0.6em;
-  font: 600 0.18em/1 var(--mono);
-  letter-spacing: 0;
-  color: var(--on-var);
-  vertical-align: 0.4em;
   font-style: normal;
 }
 
@@ -594,7 +589,10 @@ main {
   justify-content: space-between;
   gap: 8px 24px;
   padding: 20px var(--page-pad) 28px;
-  border-top: 1px solid var(--outline);
+  background: rgb(0 0 0 / 0.35);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  backdrop-filter: blur(16px) saturate(1.4);
+  border-top: 1px solid rgb(255 255 255 / 0.08);
   font: 500 12px/1.6 var(--mono);
   color: var(--on-var);
 }
@@ -616,10 +614,6 @@ main {
 .footer a:hover {
   color: var(--on);
   border-bottom-color: var(--lime);
-}
-
-.solver {
-  color: var(--lime);
 }
 
 /* ---------- the About dialog (Material 3) ---------- */
