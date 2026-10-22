@@ -42,8 +42,8 @@ Status: agreed for v1 (2026-10-22). Changes are made here first, then in
 | R4.2 | Some tiles are **heroes** and are shown larger than the others on every screen. v1: Leibniz and 8800. |
 | R4.3 | The tiles form a live-tile grid (Metro style) with **every row completely filled**, on wide desktops, normal desktops, tablets and phones. |
 | R4.4 | Static state: a still picture from the project's animation, styled to the page, with the project's title and a one-line tagline. |
-| R4.5 | Playing state: on hover or keyboard focus (desktop), or while it is the tile most in view (touch screens), the tile plays its animation, looping. Leaving it pauses and returns to the static look. |
-| R4.6 | The whole tile is a link to the project's GitHub repository. Projects with a live demo also get a **Try it** link on the tile. |
+| R4.5 | Playing state: on hover or keyboard focus (desktop), the tile plays its animation, looping; leaving it pauses and returns to the static look. On touch screens, scrolling gives every tile its turn, one at a time, the last row included; a tap on a tile plays it, and a tap on the playing tile pauses it. |
+| R4.6 | Every tile links to the project's GitHub repository, and projects with a live demo also get a **Try it** link. With a mouse, the whole tile is the GitHub link and the buttons show on hover. On touch screens, where a tap plays the tile, a **GitHub** button (and **Try it**) is always shown on every tile. |
 | R4.7 | With *reduce motion* set in the system, nothing plays by itself; tiles stay static. |
 
 ## R5. Animations

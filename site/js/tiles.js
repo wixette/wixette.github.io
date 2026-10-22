@@ -6,6 +6,7 @@
 import { Kit } from './anim/kit.js';
 import { Player } from './anim/player.js';
 import { Stage } from './anim/stage.js';
+import { focusLine, pickFocused } from './focus.js';
 import { icon } from './icons.js';
 import { lang, onLang, t } from './i18n.js';
 
@@ -58,9 +59,14 @@ export class Tile {
       this.tryChip.target = '_blank';
       this.tryChip.rel = 'noopener';
     }
-    // The GitHub sticker only shows where the tile's own link goes; clicks pass through it.
-    this.ghChip = span(chips, 'chip chip-gh');
-    this.ghChip.setAttribute('aria-hidden', 'true');
+    // The GitHub sticker. With a mouse, the whole tile is this link and clicks pass through
+    // the sticker to it; on a touch screen, where a tap on the tile plays it, the sticker is
+    // the way to the repository.
+    this.ghChip = /** @type {HTMLAnchorElement} */ (chips.appendChild(document.createElement('a')));
+    this.ghChip.className = 'chip chip-gh';
+    this.ghChip.href = showcase.repo;
+    this.ghChip.target = '_blank';
+    this.ghChip.rel = 'noopener';
 
     this.progress = span(div(this.el, 'tile-progress'), '');
 
@@ -94,6 +100,19 @@ export class Tile {
       this.tryChip.setAttribute('aria-label', t('tile.tryLabel', { title: s.title[l] }));
     }
     this.ghChip.replaceChildren(label(t('tile.github')), icon('arrow_outward', 18));
+    this.ghChip.setAttribute('aria-label', t('tile.repoLabel', { title: s.title[l] }));
+    this.mode();
+  }
+
+  /**
+   * With a mouse the tile's own link goes to GitHub, so the sticker stays out of the tab
+   * order and away from screen readers; on a touch screen it is the link.
+   */
+  mode() {
+    const touch = !hoverDevice.matches;
+    this.ghChip.tabIndex = touch ? 0 : -1;
+    if (touch) this.ghChip.removeAttribute('aria-hidden');
+    else this.ghChip.setAttribute('aria-hidden', 'true');
   }
 
   /** Metro's press tilt: the tile leans away from the pointer. */
@@ -222,31 +241,46 @@ export function createTiles(list, showcases) {
     });
   }
 
-  // Touch screens: the tile most in view plays.
-  /** @type {Map<Tile, number>} */
-  const ratios = new Map();
-  const inView = new IntersectionObserver(
-    (entries) => {
-      for (const e of entries) {
-        const tile = byEl.get(/** @type {HTMLLIElement} */ (e.target));
-        if (tile) ratios.set(tile, e.intersectionRatio);
-      }
-      if (hoverDevice.matches) return;
-      let best = null;
-      let bestRatio = 0.6;
-      for (const [tile, r] of ratios) {
-        if (r > bestRatio) {
-          best = tile;
-          bestRatio = r;
-        }
-      }
-      activate(best);
-    },
-    { threshold: [0, 0.25, 0.5, 0.6, 0.75, 0.9, 1] },
-  );
-  for (const tile of tiles) inView.observe(tile.el);
+  // Touch screens: the tile under the sweeping focus line plays (focus.js), and a tap on a
+  // tile plays it, or pauses it if it is playing. A tap overrides the focus line until the
+  // line moves on to another tile.
+  /** @type {Tile | null} */
+  let focused = null;
+  let scheduled = false;
+  const sweep = () => {
+    scheduled = false;
+    if (hoverDevice.matches) return;
+    const top = document.querySelector('.topbar')?.getBoundingClientRect().bottom ?? 0;
+    const maxScroll = document.documentElement.scrollHeight - innerHeight;
+    const y = focusLine(scrollY, maxScroll, innerHeight, top);
+    const grid = list.getBoundingClientRect();
+    const i = pickFocused(tiles.map((t) => t.el.getBoundingClientRect()), y, (grid.left + grid.right) / 2, innerHeight, top);
+    const tile = i >= 0 ? tiles[i] : null;
+    if (tile === focused) return;
+    focused = tile;
+    activate(tile);
+  };
+  const schedule = () => {
+    if (!scheduled) requestAnimationFrame(sweep);
+    scheduled = true;
+  };
+  addEventListener('scroll', schedule, { passive: true });
+  addEventListener('resize', schedule);
+  new ResizeObserver(schedule).observe(list);
+  for (const tile of tiles) {
+    tile.el.addEventListener('click', (e) => {
+      if (hoverDevice.matches || (e.target instanceof Element && e.target.closest('a'))) return;
+      if (active === tile && tile.player?.playing) activate(null);
+      else activate(tile);
+    });
+  }
 
-  const touchClass = () => document.documentElement.classList.toggle('touch', !hoverDevice.matches);
+  const touchClass = () => {
+    document.documentElement.classList.toggle('touch', !hoverDevice.matches);
+    for (const tile of tiles) tile.mode();
+    focused = null;
+    schedule();
+  };
   touchClass();
   hoverDevice.addEventListener('change', touchClass);
   reduceMotion.addEventListener('change', () => reduceMotion.matches && activate(null));

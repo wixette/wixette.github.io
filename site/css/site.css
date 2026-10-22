@@ -492,10 +492,7 @@ main {
   pointer-events: auto;
 }
 
-/* On touch screens the tile itself is the GitHub link; Try it is enough. */
-.touch .chip-try + .chip-gh {
-  display: none;
-}
+
 
 /* stickers: white paper, black border, a hard shadow in the accent */
 .chip {
@@ -552,6 +549,65 @@ main {
   }
 
   .chip-gh .chip-label {
+    display: none;
+  }
+}
+
+/* ---------- touch screens ----------
+   A tap on a tile plays it (tiles.js), so the tile is not a link: its buttons are, always
+   shown in a row under the tagline. The title keeps its size while the tile plays. */
+
+.touch .tile {
+  cursor: pointer;
+}
+
+.touch .tile-link {
+  display: none;
+}
+
+.touch .tile-info {
+  padding-bottom: calc(clamp(14px, 5.5cqmin, 26px) + 42px);
+}
+
+.touch .tile.is-playing .tile-info {
+  transform: none;
+}
+
+.touch .tile.is-playing .tile-tagline,
+.touch .tile:focus-within .tile-tagline {
+  opacity: 1;
+}
+
+.touch .tile-chips {
+  left: clamp(12px, 5cqmin, 24px);
+  right: auto;
+  opacity: 1;
+  transform: none;
+}
+
+.touch .tile-chips .chip {
+  pointer-events: auto;
+}
+
+/* Narrow touch tiles keep both: Try it as its icon alone, GitHub with its word. */
+@container (max-width: 300px) {
+  .touch .chip-try + .chip-gh {
+    display: inline-flex;
+  }
+
+  .touch .chip-gh {
+    padding: 0 12px 0 10px;
+  }
+
+  .touch .chip-gh .chip-label {
+    display: inline;
+  }
+
+  .touch .chip-try {
+    padding: 0 7px;
+  }
+
+  .touch .chip-try .chip-label {
     display: none;
   }
 }
