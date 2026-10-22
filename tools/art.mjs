@@ -24,8 +24,8 @@ const ROOT = fileURLToPath(new URL('..', import.meta.url));
 /** Generation size and export size for each kind. */
 const KINDS = {
   ref: { size: '1536x1024', max: 0 },
-  sprite: { size: '1024x1024', max: 800 },
-  text: { size: '1536x1024', max: 1000 },
+  sprite: { size: '1024x1024', max: 640 },
+  text: { size: '1536x1024', max: 900 },
   bg: { size: '1536x1024', max: 1600 },
 };
 
@@ -158,7 +158,7 @@ function exportAll(id) {
     const max = item.max ?? KINDS[item.kind].max;
     if (item.kind === 'bg') {
       // Cover-crop to 2:1, the stage's shape.
-      magick([src, '-resize', `${max}x${max / 2}^`, '-gravity', 'center', '-extent', `${max}x${max / 2}`, '-quality', '80', dst]);
+      magick([src, '-resize', `${max}x${max / 2}^`, '-gravity', 'center', '-extent', `${max}x${max / 2}`, '-quality', '74', dst]);
     } else {
       // Trim the empty margin, then bake in the paper's soft drop shadow (no CSS filters at
       // run time), as the style guide's 0 9px 7px rgba(74,48,22,.3). The model leaves faint
@@ -169,7 +169,7 @@ function exportAll(id) {
         src, '-crop', box, '+repage', '-channel', 'A', '-level', '3%,100%', '+channel', '-resize', `${max}x${max}>`,
         '(', '+clone', '-background', 'rgb(74,48,22)', '-shadow', '38x5+0+7', ')',
         '+swap', '-background', 'none', '-layers', 'merge', '+repage',
-        '-quality', '84', '-define', 'webp:alpha-quality=90', dst,
+        '-quality', '76', '-define', 'webp:alpha-quality=80', dst,
       ]);
     }
     const [w, h] = magick(['identify', '-format', '%w %h', dst]).trim().split(' ').map(Number);

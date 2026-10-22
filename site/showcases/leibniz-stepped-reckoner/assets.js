@@ -4,10 +4,10 @@
 export default {
   'bg_paper': { file: 'bg_paper.webp', w: 1600, h: 800 },
   'bg_study': { file: 'bg_study.webp', w: 1600, h: 800 },
-  'crank.en': { file: 'crank.en.webp', w: 1020, h: 570 },
-  'crank.zh': { file: 'crank.zh.webp', w: 1020, h: 311 },
-  'drum': { file: 'drum.webp', w: 820, h: 512 },
-  'leibniz_cheer': { file: 'leibniz_cheer.webp', w: 525, h: 820 },
-  'leibniz_think': { file: 'leibniz_think.webp', w: 429, h: 820 },
-  'machine': { file: 'machine.webp', w: 820, h: 361 },
+  'crank.en': { file: 'crank.en.webp', w: 920, h: 515 },
+  'crank.zh': { file: 'crank.zh.webp', w: 920, h: 282 },
+  'drum': { file: 'drum.webp', w: 660, h: 413 },
+  'leibniz_cheer': { file: 'leibniz_cheer.webp', w: 424, h: 660 },
+  'leibniz_think': { file: 'leibniz_think.webp', w: 348, h: 660 },
+  'machine': { file: 'machine.webp', w: 660, h: 293 },
 };

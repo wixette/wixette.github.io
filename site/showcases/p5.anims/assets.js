@@ -4,8 +4,8 @@
 export default {
   'bg_kraft': { file: 'bg_kraft.webp', w: 1600, h: 800 },
   'bg_sketch': { file: 'bg_sketch.webp', w: 1600, h: 800 },
-  'draw.en': { file: 'draw.en.webp', w: 1020, h: 496 },
-  'draw.zh': { file: 'draw.zh.webp', w: 1020, h: 263 },
-  'palette': { file: 'palette.webp', w: 802, h: 820 },
-  'pencil': { file: 'pencil.webp', w: 566, h: 820 },
+  'draw.en': { file: 'draw.en.webp', w: 920, h: 448 },
+  'draw.zh': { file: 'draw.zh.webp', w: 920, h: 238 },
+  'palette': { file: 'palette.webp', w: 646, h: 660 },
+  'pencil': { file: 'pencil.webp', w: 457, h: 660 },
 };

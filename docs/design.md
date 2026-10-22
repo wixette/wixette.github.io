@@ -284,13 +284,15 @@ prototype's style guide. The tool:
    `.cache/art/<id>/` (git-ignored). Reference images (a model sheet of the project's
    characters and props) are generated first and passed to every later image of that
    showcase, which keeps it consistent within one animation (D16);
-2. with `--export`, trims transparent margins, resizes (sprites to at most 800 px, text art to
-   1000 px, backgrounds to 1600 × 800 after cropping to 2:1), bakes in the paper's drop shadow
+2. with `--export`, trims transparent margins, resizes (sprites to at most 640 px, text art to
+   900 px, backgrounds to 1600 × 800 after cropping to 2:1), bakes in the paper's drop shadow
    (so no CSS filter runs during playback) and writes WebP to `site/showcases/<id>/assets/`,
    plus `assets.js` with every image's file name and size. The model leaves near-invisible
    specks (alpha under 1%) far from the art; the trim box comes from a thresholded alpha
-   mask, and the specks are cleared. A whole animation's images come to 0.6–1.8 MB, of which
-   a page loads only the current language's text art.
+   mask, and the specks are cleared. WebP quality is 76 for cutouts and text
+   (alpha 80) and 74 for backgrounds: sharp at twice a hero tile's size. A whole animation's
+   images come to 0.4–1.1 MB, and the page loads only the current language's text art: about
+   2.9 MB for all five.
 
 The full-size PNGs are never committed; the WebP files are the published art.
 

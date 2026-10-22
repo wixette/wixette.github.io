@@ -2,17 +2,17 @@
 // sizes. Do not edit.
 /** @type {Record<string, import('../../js/anim/kit.js').AssetInfo>} */
 export default {
-  'audiobook': { file: 'audiobook.webp', w: 820, h: 671 },
-  'audiobooks.en': { file: 'audiobooks.en.webp', w: 1020, h: 430 },
-  'audiobooks.zh': { file: 'audiobooks.zh.webp', w: 1020, h: 280 },
+  'audiobook': { file: 'audiobook.webp', w: 660, h: 541 },
+  'audiobooks.en': { file: 'audiobooks.en.webp', w: 920, h: 389 },
+  'audiobooks.zh': { file: 'audiobooks.zh.webp', w: 920, h: 254 },
   'bg_night': { file: 'bg_night.webp', w: 1600, h: 800 },
   'bg_paper': { file: 'bg_paper.webp', w: 1600, h: 800 },
-  'book': { file: 'book.webp', w: 820, h: 692 },
-  'boy': { file: 'boy.webp', w: 558, h: 820 },
-  'girl': { file: 'girl.webp', w: 340, h: 820 },
-  'grandpa': { file: 'grandpa.webp', w: 735, h: 820 },
-  'headphones': { file: 'headphones.webp', w: 820, h: 646 },
-  'laptop': { file: 'laptop.webp', w: 820, h: 628 },
-  'who.en': { file: 'who.en.webp', w: 1020, h: 312 },
-  'who.zh': { file: 'who.zh.webp', w: 1020, h: 339 },
+  'book': { file: 'book.webp', w: 660, h: 558 },
+  'boy': { file: 'boy.webp', w: 450, h: 660 },
+  'girl': { file: 'girl.webp', w: 276, h: 660 },
+  'grandpa': { file: 'grandpa.webp', w: 592, h: 660 },
+  'headphones': { file: 'headphones.webp', w: 660, h: 521 },
+  'laptop': { file: 'laptop.webp', w: 660, h: 507 },
+  'who.en': { file: 'who.en.webp', w: 920, h: 282 },
+  'who.zh': { file: 'who.zh.webp', w: 920, h: 308 },
 };
