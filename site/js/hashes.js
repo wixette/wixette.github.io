@@ -2,9 +2,8 @@
 // load at run time, by path from site/. Do not edit.
 /** @type {Record<string, string>} */
 export const HASHES = {
-  'images/avatar.svg': 'b48f7b15b9',
-  'images/favicon.svg': 'bfff367515',
-  'images/logo.svg': 'bfff367515',
+  'images/favicon.svg': '12d4cbe1ce',
+  'images/logo.svg': '12d4cbe1ce',
   'showcases/8800-simulator/assets/altair.webp': '0737c6fcec',
   'showcases/8800-simulator/assets/bg_dorm.webp': '95310b3e46',
   'showcases/8800-simulator/assets/bg_garage.webp': '40389f0a62',

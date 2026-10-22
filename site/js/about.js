@@ -35,21 +35,23 @@ export function initAbout(dialog, opener) {
     avatar.src = assetUrl(PROFILE.avatar);
     avatar.alt = '';
     const who = document.createElement('div');
+    // The name's lines share one fixed height: two in English, one in Chinese.
     const name = document.createElement('h2');
-    name.textContent = PROFILE.name[l];
+    name.className = `name lines-${PROFILE.name[l].length}`;
+    for (const line of PROFILE.name[l]) {
+      const span = document.createElement('span');
+      span.textContent = line;
+      name.append(span);
+    }
     const handle = document.createElement('p');
     handle.className = 'handle';
     handle.textContent = PROFILE.handle;
     who.append(name, handle);
     head.append(avatar, who);
 
-    const bio = document.createElement('div');
+    const bio = document.createElement('p');
     bio.className = 'about-bio';
-    for (const para of PROFILE.bio[l]) {
-      const p = document.createElement('p');
-      p.textContent = para;
-      bio.append(p);
-    }
+    bio.textContent = PROFILE.bio[l];
 
     const title = document.createElement('p');
     title.className = 'about-links-title';
@@ -58,25 +60,17 @@ export function initAbout(dialog, opener) {
     links.className = 'about-links';
     for (const link of PROFILE.links) {
       const li = document.createElement('li');
-      const a = document.createElement(link.placeholder ? 'span' : 'a');
-      a.className = `link-chip${link.placeholder ? ' placeholder' : ''}`;
-      if (a instanceof HTMLAnchorElement) {
-        a.href = link.href;
-        a.target = '_blank';
-        a.rel = 'noopener me';
-      }
+      const a = document.createElement('a');
+      a.className = 'link-chip';
+      a.href = link.href;
+      a.target = '_blank';
+      a.rel = 'noopener me';
       a.append(icon(link.icon, 20), document.createTextNode(link.label[l]));
       li.append(a);
       links.append(li);
     }
 
     body.append(close, head, bio, title, links);
-    if (PROFILE.placeholder || PROFILE.links.some((x) => x.placeholder)) {
-      const note = document.createElement('p');
-      note.className = 'placeholder-note';
-      note.textContent = t('about.placeholder');
-      body.append(note);
-    }
   };
 
   opener.addEventListener('click', () => dialog.showModal());

@@ -30,9 +30,9 @@ Status: agreed for v1 (2026-10-22). Changes are made here first, then in
 
 | # | Requirement |
 |---|---|
-| R3.1 | The logo (an SVG the owner provides; a placeholder until then). |
+| R3.1 | The logo: a tiny live-tile grid in the tiles' colours (`site/images/logo.svg`), also the favicon. |
 | R3.2 | The language switch, English / 中文. |
-| R3.3 | A button that opens the About dialog: the owner's name, a short bio, an avatar and social links (placeholders until the owner provides them, kept in one file). |
+| R3.3 | A button that opens the About dialog: the logo, the owner's name and handle, a short bio and links to the owner's blog, GitHub, X, LinkedIn and Zhihu, each with its icon. All of it lives in one file (`site/js/profile.js`). The name takes the same height in both languages: two lines in English, one in Chinese. |
 
 ## R4. Showcase tiles
 

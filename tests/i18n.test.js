@@ -38,11 +38,14 @@ test('both languages have every page string, none empty, with the same placehold
   }
 });
 
-test('the profile has both languages', () => {
-  assert.ok(PROFILE.name.en && PROFILE.name.zh);
-  assert.equal(PROFILE.bio.en.length > 0, PROFILE.bio.zh.length > 0);
+test('the profile has both languages, real links and known icons', async () => {
+  assert.ok(PROFILE.name.en.length > 0 && PROFILE.name.zh.length > 0);
+  assert.ok(PROFILE.bio.en && PROFILE.bio.zh);
+  // icons.js only touches the DOM inside icon(), so its table can be read here.
+  const { ICONS } = await import('../site/js/icons.js');
   for (const link of PROFILE.links) {
     assert.ok(link.label.en && link.label.zh);
-    if (!link.placeholder) assert.match(link.href, /^(https:|mailto:)/);
+    assert.match(link.href, /^https:\/\//);
+    assert.ok(link.icon in ICONS, link.icon);
   }
 });

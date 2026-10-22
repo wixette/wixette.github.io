@@ -1,28 +1,25 @@
 // @ts-check
-// The About dialog's content, in one place. PLACEHOLDERS until the owner provides the real
-// ones: set `placeholder` to false on each item once it is real.
+// The About dialog's content, in one place.
 
 /** @typedef {{ en: string; zh: string }} Text */
-/** @typedef {{ label: Text; href: string; icon: string; placeholder: boolean }} Link */
+/** @typedef {{ label: Text; href: string; icon: string }} Link */
 
 export const PROFILE = {
-  name: { en: 'Yonggang Wang', zh: 'Yonggang Wang' },
+  /** The name's lines in each language; the whole name takes the same height in both. */
+  name: { en: ['Yonggang', 'Wang'], zh: ['王咏刚'] },
   handle: '@wixette',
-  /** relative to site/ */
-  avatar: 'images/avatar.svg',
-  /** paragraphs */
+  /** relative to site/; the logo stands in for an avatar */
+  avatar: 'images/logo.svg',
   bio: {
-    en: [
-      'Software engineer who likes old machines, small languages and making things move.',
-      'This is placeholder text: a few lines about who I am and what I work on go here.',
-    ],
-    zh: ['喜欢老机器、小语言和让东西动起来的软件工程师。', '这是占位文字：这里写几句关于我是谁、在做什么。'],
+    en: 'Programmer, ex-Googler, the same age as the Homebrew Computer Club. Wrote novels, made investments, started company after company. Loves open-source projects that are fun, and would rather not live without curiosity.',
+    zh: '程序员，ex-Googler，与 Homebrew Computer Club 同年，写过小说，做过投资，当过连续创业者，钟爱好玩的开源项目，离了好奇心就不想活',
   },
-  placeholder: true,
   /** @type {Link[]} */
   links: [
-    { label: { en: 'GitHub', zh: 'GitHub' }, href: 'https://github.com/wixette', icon: 'code', placeholder: false },
-    { label: { en: 'Email', zh: '邮箱' }, href: '', icon: 'mail', placeholder: true },
-    { label: { en: 'Website', zh: '网站' }, href: '', icon: 'link', placeholder: true },
+    { label: { en: 'Blog', zh: '博客' }, href: 'https://www.ygwang.info/', icon: 'language' },
+    { label: { en: 'GitHub', zh: 'GitHub' }, href: 'https://github.com/wixette', icon: 'github' },
+    { label: { en: 'X', zh: 'X' }, href: 'https://x.com/wixette', icon: 'x' },
+    { label: { en: 'LinkedIn', zh: 'LinkedIn' }, href: 'https://www.linkedin.com/in/wixette/', icon: 'linkedin' },
+    { label: { en: 'Zhihu', zh: '知乎' }, href: 'https://www.zhihu.com/people/ygwang', icon: 'zhihu' },
   ],
 };

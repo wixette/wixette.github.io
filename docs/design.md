@@ -13,7 +13,7 @@ site/                         the published site, served as it is (D1)
   js/main.js                  start-up: language, top bar, grid, tiles, dialog, footer
   js/i18n.js                  language choice and the t() lookup
   js/strings.js               the page's own strings, en and zh
-  js/profile.js               the About dialog's content (placeholders until provided)
+  js/profile.js               the About dialog's content: name, handle, bio, links
   js/layout.js                the live-tile solver (pure, tested)
   js/grid.js                  puts the solver's answer on the page; re-solves on resize
   js/tiles.js                 tile elements, their states and who plays when
@@ -27,7 +27,7 @@ site/                         the published site, served as it is (D1)
   showcases/<id>/composition.js   one project's animation
   showcases/<id>/assets.js    generated: its images, with their sizes
   showcases/<id>/assets/      generated: its images, WebP
-  images/                     logo, avatar and favicon (placeholders until provided)
+  images/                     the logo, also the favicon and the dialog's picture
   vendor/fonts/               fonts copied from npm (pnpm vendor), with their licences
 art/<id>/art.json             the prompts for a showcase's images (not published)
 art/style.json                the prompt prefixes shared by every showcase

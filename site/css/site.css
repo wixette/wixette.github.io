@@ -700,39 +700,56 @@ main {
 }
 
 .avatar {
+  /* the logo stands in for an avatar: as tall as the name and the handle together */
   flex: none;
-  width: 72px;
-  height: 72px;
-  border-radius: 20px;
-  background: var(--surface-2);
-  border: 2px solid var(--lime);
-  box-shadow: 4px 4px 0 var(--lime);
-  object-fit: cover;
+  width: 92px;
+  height: 92px;
 }
 
-.about h2 {
+/* The name takes one height in both languages: two lines of English, one of Chinese. */
+.about .name {
+  --name-h: 68px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: var(--name-h);
   margin: 0;
   font-weight: 800;
   font-stretch: 85%;
-  font-size: 28px;
-  line-height: 1.1;
   letter-spacing: -0.02em;
+}
+
+.about .name span {
+  display: block;
+  white-space: nowrap;
+}
+
+.about .name.lines-2 {
+  font-size: 31px;
+  line-height: calc(var(--name-h) / 2);
+}
+
+.about .name.lines-1 {
+  font-size: 50px;
+  line-height: var(--name-h);
+  letter-spacing: 0.02em;
 }
 
 .about .handle {
   margin: 4px 0 0;
-  font: 500 13px/1.3 var(--mono);
+  font: 500 14px/20px var(--mono);
   color: var(--lime);
 }
 
 .about-bio {
-  margin: 20px 0 0;
+  margin: 22px 0 0;
   color: var(--on-var);
   font-size: 15px;
+  line-height: 1.6;
 }
 
-.about-bio p {
-  margin: 0 0 0.7em;
+:lang(zh) .about-bio {
+  line-height: 1.8;
 }
 
 .about-links-title {
@@ -776,17 +793,6 @@ main {
 a.link-chip:hover {
   background: rgb(255 255 255 / 0.06);
   border-color: var(--lime);
-}
-
-.link-chip.placeholder {
-  border-style: dashed;
-  color: var(--on-var);
-}
-
-.placeholder-note {
-  margin: 16px 0 0;
-  font: 500 12px/1.4 var(--mono);
-  color: #ffb547;
 }
 
 /* ---------- motion preferences ---------- */
