@@ -3,32 +3,42 @@
     {
       "name": "ref",
       "kind": "ref",
-      "prompt": "(1) a thick open Chinese novel book with a red cloth cover and cream pages; (2) a kind old storyteller grandpa with a long white beard, a dark teal Chinese jacket and a folding fan; (3) a young woman in a mustard qipao with a neat bun; (4) a cheeky little boy with a tomato red jacket and a tuft of hair; (5) a silver laptop, open, its screen showing colourful sound waves; (6) a big pair of over-ear headphones in teal and cream."
+      "prompt": "The cast and props of a modern mystery novel, cute but a little noir, in a palette of midnight navy, streetlight mustard yellow, tomato red, cream and teal: (1) a young woman detective with a short bob, a mustard trench coat and a magnifying glass; (2) a nervous young man suspect in a grey hoodie and jeans, sweat drops on his forehead; (3) an elderly lady witness with round glasses, a lilac cardigan and a ginger cat in her arms; (4) a gruff middle-aged police inspector with a big mustache, a rumpled brown suit and a paper coffee cup; (5) a modern paperback mystery novel whose cover shows a rainy night street, a streetlamp and a fedora silhouette; (6) a silver laptop with colourful sound waves on its screen; (7) a smartphone playing an audiobook; (8) big over-ear headphones in teal and cream. Everyone in modern clothes. No text."
     },
     {
-      "name": "book",
+      "name": "novel",
       "kind": "sprite",
-      "prompt": "The thick Chinese novel from the model sheet, lying open and seen from the front and slightly above, red cloth cover, cream pages fanning up, a few tiny sparkles above the pages. No readable text on the pages."
+      "prompt": "The modern paperback mystery novel from the model sheet, standing slightly open and tilted, its cover a rainy night street with a glowing streetlamp, a fedora silhouette and a magnifying glass. No readable words or letters anywhere."
     },
     {
-      "name": "grandpa",
+      "name": "detective",
       "kind": "sprite",
-      "prompt": "The old storyteller grandpa from the model sheet (long white beard, dark teal Chinese jacket), full body, facing right, holding a folding fan up, mouth open telling a story, warm and wise."
+      "prompt": "The young woman detective from the model sheet (short bob, mustard trench coat), full body, standing facing front, holding up the magnifying glass to one eye with a sharp, confident look."
     },
     {
-      "name": "girl",
+      "name": "suspect",
       "kind": "sprite",
-      "prompt": "The young woman from the model sheet (mustard qipao, neat bun), full body, facing front, one hand raised as she talks brightly, a cheerful open smile."
+      "prompt": "The nervous young man suspect from the model sheet (grey hoodie, jeans), full body, standing facing front, both hands raised defensively, sweat drops flying, eyes wide."
     },
     {
-      "name": "boy",
+      "name": "witness",
       "kind": "sprite",
-      "prompt": "The cheeky little boy from the model sheet (tomato red jacket, tuft of hair), full body, facing left, cupping one hand by his mouth and shouting, mischievous grin."
+      "prompt": "The elderly lady witness from the model sheet (round glasses, lilac cardigan), full body, standing facing front, holding the ginger cat in her arms, mouth open in an excited whisper."
+    },
+    {
+      "name": "inspector",
+      "kind": "sprite",
+      "prompt": "The gruff police inspector from the model sheet (big mustache, rumpled brown suit), full body, standing facing front, holding the paper coffee cup up, one eyebrow raised."
     },
     {
       "name": "laptop",
       "kind": "sprite",
-      "prompt": "The silver laptop from the model sheet, open, seen from the front, its screen showing colourful sound waves in red, teal and mustard. No logo, no text."
+      "prompt": "The silver laptop from the model sheet, open, seen from the front, its screen showing colourful sound waves in tomato red, mustard and teal on a dark background. No logo, no text."
+    },
+    {
+      "name": "phone",
+      "kind": "sprite",
+      "prompt": "The smartphone from the model sheet, standing upright, its screen showing an audiobook player: a small square cover with a rainy night street, a progress bar, a big round play button and a short list of chapter rows drawn as plain bars. No readable text."
     },
     {
       "name": "headphones",
@@ -36,43 +46,39 @@
       "prompt": "The big over-ear headphones from the model sheet, teal and cream, seen from the front, a few small musical-note doodles around them."
     },
     {
-      "name": "audiobook",
-      "kind": "sprite",
-      "prompt": "An audiobook as a cute object: a closed red cloth book standing upright with a round mustard play button on its cover and a few colourful sound-wave ribbons flowing out of its pages. No text."
+      "name": "bg_rain",
+      "kind": "bg",
+      "prompt": "A city street on a rainy night: a deep midnight-navy sky with soft diagonal rain streaks, the warm glow of a streetlamp at the far right edge, the dark silhouettes of buildings with a few lit windows along the left edge, and a wet pavement with yellow reflections along the bottom edge. The middle is calm and dark."
     },
     {
-      "name": "bg_paper",
+      "name": "bg_board",
       "kind": "bg",
-      "prompt": "Blank cream cold-press watercolor paper with faint fibers and a soft warm vignette, a faint red Chinese cloud pattern in the top corners, and a pale jade-green watercolor wash along the bottom edge."
+      "prompt": "A detective's cork pinboard filling the frame: warm brown cork texture, a few blank index cards and a street map scrap pinned only near the corners and edges, no strings, no photos, no text. The middle is plain cork."
     },
     {
-      "name": "bg_night",
+      "name": "bg_desk",
       "kind": "bg",
-      "prompt": "A quiet desk at night: a deep navy watercolor sky with white splatter-paint stars across the top, a warm round glow of a desk lamp at the far right edge, and a wooden desk top along the bottom edge."
+      "prompt": "A quiet desk at night: a deep navy watercolor wall with a window of rain at the far left edge, the warm round glow of a desk lamp at the far right edge, and a wooden desk top along the bottom edge. The middle is plain and calm."
     },
     {
       "name": "who.en",
       "kind": "text",
-      "size": "1536x1024",
-      "prompt": "A hand-lettered cartoon title that reads exactly \"Who's speaking?\" (two words, nothing else), on one line. Chunky playful letters, each in a different paper color, with a tiny speech bubble drawn on the question mark. Spell it exactly."
+      "prompt": "A hand-lettered cartoon title that reads exactly \"Who said that?\" (three words and a question mark, nothing else), on one line. Chunky bold letters in mustard yellow, cream and tomato red with a dark navy outline, a little magnifying glass forming the dot of the question mark. Spell it exactly."
     },
     {
       "name": "who.zh",
       "kind": "text",
-      "size": "1536x1024",
-      "prompt": "一个手绘卡通标题，文字必须准确为「谁在说话？」（四个汉字加问号，不要其他文字），排成一行。粗壮可爱的字体，每个字是不同颜色的剪纸，问号旁画一个小小的对话气泡。字必须写对。"
+      "prompt": "一个手绘卡通标题，文字必须准确为「这句话是谁说的？」（七个汉字加问号，不要其他文字），排成一行。粗壮的字体，颜色用芥末黄、奶油白和番茄红，外面一圈深蓝描边；问号的圆点画成一个小放大镜。字必须写对。"
     },
     {
       "name": "audiobooks.en",
       "kind": "text",
-      "size": "1536x1024",
-      "prompt": "A hand-lettered cartoon title that reads exactly \"Multi-voice audiobooks\" (two words, nothing else), on two lines: \"Multi-voice\" above \"audiobooks\". Chunky playful letters, each in a different paper color, with little sound waves flowing from the last letter. Spell it exactly, including the hyphen."
+      "prompt": "A hand-lettered cartoon title that reads exactly \"Multi-voice audiobooks\" (two words, nothing else), on two lines: \"Multi-voice\" above \"audiobooks\". Chunky bold letters in mustard yellow, cream, tomato red and teal with a dark navy outline, little sound waves flowing from the last letter. Spell it exactly, including the hyphen."
     },
     {
       "name": "audiobooks.zh",
       "kind": "text",
-      "size": "1536x1024",
-      "prompt": "一个手绘卡通标题，文字必须准确为「多角色有声书」（六个汉字，不要其他文字），排成一行。粗壮可爱的字体，每个字是不同颜色的剪纸，最后一个字旁边飘出彩色的声波。字必须写对。"
+      "prompt": "一个手绘卡通标题，文字必须准确为「多角色有声书」（六个汉字，不要其他文字），排成一行。粗壮的字体，颜色用芥末黄、奶油白、番茄红和青色，外面一圈深蓝描边，最后一个字旁边飘出声波。字必须写对。"
     }
   ]
 }
