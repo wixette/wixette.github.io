@@ -71,7 +71,9 @@ pnpm art <id> --only bg_lab,cat_walk --force   # redo some
   stroke means regenerate. After three failures in a language, drop that image; the kit draws
   the line from the composition's strings instead.
 - Sprites: a clean transparent background, the white die-cut border all round, nothing cut off,
-  the same character design as the reference sheet.
+  the same character design as the reference sheet. The model sometimes adds a prop to a pose
+  (Meowlang's typing cat came with its own keyboard): either use it as drawn and adjust the
+  composition, or regenerate with "nothing else in the picture".
 - Backgrounds: no text, no characters, calm in the middle.
 
 Then export:
@@ -79,6 +81,10 @@ Then export:
 ```
 pnpm art <id> --export   # WebP into site/showcases/<id>/assets/, and assets.js
 ```
+
+Look at the exported files once (a montage helps: `magick montage site/showcases/<id>/assets/*.webp
+-background '#777' -geometry 380x260+6+6 -tile 4x sheet.png`): each sprite tightly trimmed,
+with its drop shadow, none blank.
 
 ## 4. Write the composition
 
@@ -88,7 +94,12 @@ pnpm art <id> --export   # WebP into site/showcases/<id>/assets/, and assets.js
 - Times are absolute seconds. Add tweens in time order.
 - Randomness only from `k.rng(seed)`; no `Math.random`, `Date` or timers.
 - Coordinates are stage pixels, 2000 × 1000; keep what matters inside x = 500…1500.
-- Pick a `poster` time with the main subject on screen and no text art.
+- Pick a `poster` time with the main subject on screen, nothing in mid-flight (confetti,
+  pops), and ideally no text art: the tile's own title covers the bottom third.
+- Cutouts are placed by their feet (`anchor: 'bottom'`), their centre, or their bottom-left
+  corner (`'bottomLeft'`, for a pencil whose tip follows a path with `k.follow`).
+- Start the first beat within 0.1–0.3 s: the poster fades into the animation, and an empty
+  first second looks broken.
 - Strings for both languages in `strings`; every `textArt` name needs a fallback string.
 
 ## 5. Review it yourself
@@ -102,6 +113,8 @@ pnpm serve
   overlaps, a character floating above the ground, a beat that reads backwards.
 - `dev/player.html?id=<id>&lang=en`: watch it at full speed. Snappy, never floaty; nothing on
   screen frozen.
+- The pages set `data-ready` on `<body>` when every frame is built. In a hidden or background
+  browser window that takes several seconds: wait for it before judging a blank frame.
 
 Fix and repeat until it is right. Two rounds are typical.
 

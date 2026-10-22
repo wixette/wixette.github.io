@@ -18,6 +18,8 @@ site/                         the published site, served as it is (D1)
   js/grid.js                  puts the solver's answer on the page; re-solves on resize
   js/tiles.js                 tile elements, their states and who plays when
   js/about.js                 the About dialog
+  js/grid-width.js            the grid's width at a viewport width (for tools and tests)
+  js/asset-url.js             stamped URLs for files the scripts load themselves
   js/icons.js                 generated: the Material Symbols the page uses
   js/hashes.js                generated: content hashes of files loaded at run time
   js/anim/                    the animation system (section 6)
@@ -102,8 +104,11 @@ dark tonal surfaces, a little lighter than black. On top of that:
   headline, set heavy and slightly condensed; JetBrains Mono for meta text (indices, tags,
   prompt line, footer). Chinese uses the system's sans (PingFang SC, Noto Sans SC, Microsoft
   YaHei), so no Chinese web font is downloaded.
-- **Stickers:** the Try it and GitHub chips are white stickers with a black border and a hard
-  offset shadow in the project's accent, a nod to the paper-cutout animations.
+- **Stickers:** the Try it and GitHub chips are paper stickers with a black border and a hard
+  offset shadow, a nod to the paper-cutout animations: Try it in the project's accent, GitHub
+  in paper white. They sit at the bottom right and show only on the playing (or focused) tile.
+  On narrow tiles, and on touch screens, Try it shows alone (the tile itself is the GitHub
+  link), or, without a demo, GitHub shrinks to its arrow.
 - **Corners:** 14 px on tiles, 28 px on the dialog (Material 3 extra-large), full pills on
   chips and the language switch. Gaps between tiles: 10 px.
 
@@ -112,7 +117,7 @@ dark tonal surfaces, a little lighter than black. On top of that:
 | State | Look |
 |---|---|
 | Static | The animation's poster frame in greyscale, tinted with the accent; a dark scrim at the bottom; the title large, the tagline under it; index (`01`) and tags (`8080 · BASIC`) in mono at the top. |
-| Hover / focus / in view (touch) | The tint fades out and the animation plays in colour. The title shrinks to a small label at the bottom left (as on a Metro live tile). A 3 px progress bar in the accent runs along the bottom edge. The chips appear (always visible on touch screens). |
+| Hover / focus / in view (touch) | The tint fades out and the animation plays in colour. The title shrinks to a small label at the bottom left (as on a Metro live tile) and the tagline and tags fade. A 4 px progress bar in the accent runs along the bottom edge. The chips appear. |
 | Press | Metro's tilt: the tile leans away from the pointer by up to 6° and scales to 0.98, then springs back. |
 | Focus | A 3 px acid-lime ring outside the tile. |
 
@@ -134,7 +139,7 @@ half-empty last row, at any width.
 
 Each tile lists the shapes it may take in order of preference: heroes `L, W`; normal tiles
 `S, W`. A shape is only allowed when the tile it makes is at least `minTile` pixels wide
-(220 px), so a phone never shows a tiny square.
+(200 px), so a phone never shows a tiny square.
 
 **D9. The solver (`js/layout.js`).** For each candidate column count it runs an exact
 search:
@@ -156,8 +161,13 @@ check at the end catches a ragged last row. The cost of a solution is:
   rejected.
 
 Then `chooseLayout` compares the column counts the width allows (2 to 8, cells between
-`minCell` and `maxCell`) and adds a size term: how far the cell size is from the target
-(300 px), on a log scale. The cheapest overall wins. For 5 to 20 tiles this takes well under
+`minCell` and `maxCell`) and adds two terms:
+
+- **size**: how far the cell size is from the target (280 px), on a log scale, times 8;
+- **fold**: how far the whole grid overflows the viewport under the top bar, in viewport
+  heights, times 8, so a wide screen shows every tile at once when it can.
+
+The cheapest overall wins. For 5 to 20 tiles this takes well under
 a millisecond, so it runs in the browser on every resize; the footer shows the result
 (`grid 4×3 · 0.08 ms`).
 
@@ -244,7 +254,10 @@ time.
 on 2026-10-22 had the image model letter "Turn the crank!", 「摇动曲柄！」, "Data is meow." and
 「数据就是喵。」 as paper cutouts: all four spelled right first time, with drawing mixed into
 the letters (a crank for the T, a cat's tail as the underline), which code text cannot do.
-So:
+The first full run (2026-10-22) confirmed it: all 16 text images (8 lines × 2 languages)
+were spelled right first time. One is stylised beyond the prompt: in 「数据就是喵。」 the 喵 has
+cat ears for its 艹 and a paw print inside its 田, still clearly 喵; it is flagged for the
+owner's review. So:
 
 - **Text art** (`textArt`) for each animation's 1–3 signature lines: one image per language,
   `<name>.en.webp` and `<name>.zh.webp`. Every character is checked at full size before it is
@@ -267,8 +280,11 @@ prototype's style guide. The tool:
    characters and props) are generated first and passed to every later image of that
    showcase, which keeps it consistent within one animation (D16);
 2. with `--export`, trims transparent margins, resizes (sprites to at most 800 px, text art to
-   1000 px, backgrounds to 1600 × 800 after cropping to 2:1) and writes WebP to
-   `site/showcases/<id>/assets/`, plus `assets.js` with every image's file name and size.
+   1000 px, backgrounds to 1600 × 800 after cropping to 2:1), bakes in the paper's drop shadow
+   (so no CSS filter runs during playback) and writes WebP to `site/showcases/<id>/assets/`,
+   plus `assets.js` with every image's file name and size. The model leaves near-invisible
+   specks (alpha under 1%) far from the art; the trim box comes from a thresholded alpha
+   mask, and the specks are cleared. A whole animation comes to 120–180 KB.
 
 The full-size PNGs are never committed; the WebP files are the published art.
 
@@ -314,7 +330,7 @@ Project names in Chinese: Altair 8800 模拟器, 莱布尼茨步进计算器, �
 | Types | `pnpm typecheck` |
 | Logic, strings, registry, stamps | `pnpm test` |
 | Layout at every width | `pnpm test`; `pnpm layout` prints them |
-| Animations | `dev/sheet.html?id=<id>&lang=en&shape=S` shows a contact sheet (one frame every 1.5 s) at each shape and language; `dev/player.html?id=<id>` plays one large with a scrubber |
+| Animations | `dev/sheet.html?id=<id>&lang=en&shape=S` shows a contact sheet (one frame every 1.5 s) at each shape and language; `dev/player.html?id=<id>` plays one large with a scrubber. Both set `data-ready` on `<body>` when done (a hidden browser window is throttled and takes several seconds) |
 | The page | `pnpm serve`, then the page at 375, 768, 1280 and 1920 px, in both languages, with and without reduce motion |
 
 ## 10. Licensing

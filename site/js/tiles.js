@@ -86,14 +86,14 @@ export class Tile {
     this.title.textContent = s.title[l];
     this.tagline.textContent = s.tagline[l];
     this.link.innerHTML = '';
-    const label = span(this.link, 'sr-only');
-    label.textContent = t('tile.repoLabel', { title: s.title[l] });
+    const name = span(this.link, 'sr-only');
+    name.textContent = t('tile.repoLabel', { title: s.title[l] });
     if (this.tryChip && s.demo) {
       this.tryChip.href = s.demo[l];
-      this.tryChip.replaceChildren(icon('play_arrow', 18), document.createTextNode(t('tile.try')));
+      this.tryChip.replaceChildren(icon('play_arrow', 18), label(t('tile.try')));
       this.tryChip.setAttribute('aria-label', t('tile.tryLabel', { title: s.title[l] }));
     }
-    this.ghChip.replaceChildren(document.createTextNode(t('tile.github')), icon('arrow_outward', 18));
+    this.ghChip.replaceChildren(label(t('tile.github')), icon('arrow_outward', 18));
   }
 
   /** Metro's press tilt: the tile leans away from the pointer. */
@@ -269,6 +269,14 @@ function div(parent, cls) {
   const e = document.createElement('div');
   e.className = cls;
   parent.append(e);
+  return e;
+}
+
+/** A chip's text, which narrow tiles hide. @param {string} text */
+function label(text) {
+  const e = document.createElement('span');
+  e.className = 'chip-label';
+  e.textContent = text;
   return e;
 }
 

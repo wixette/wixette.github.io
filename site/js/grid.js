@@ -20,7 +20,9 @@ export function liveGrid(grid, specs, tileOf, onLayout) {
     if (!width) return;
     const gap = parseFloat(getComputedStyle(grid).columnGap) || 10;
     const t0 = performance.now();
-    const layout = chooseLayout(specs, width, { gap });
+    // The whole grid should fit the viewport under the top bar, when there is a choice.
+    const fitHeight = innerHeight - 64 - 2 * gap;
+    const layout = chooseLayout(specs, width, { gap, fitHeight });
     const ms = performance.now() - t0;
     const next = `${layout.columns}|${layout.placements.map((p) => `${p.id}:${p.shape}@${p.row},${p.col}`).join(';')}`;
     if (next !== key) {
@@ -35,5 +37,6 @@ export function liveGrid(grid, specs, tileOf, onLayout) {
     onLayout?.(layout, ms);
   };
   new ResizeObserver(solve).observe(grid);
+  addEventListener('resize', solve);
   solve();
 }

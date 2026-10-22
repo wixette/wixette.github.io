@@ -15,7 +15,7 @@ import assets from './assets.js';
 /** @type {import('../../js/anim/kit.js').Composition} */
 export default {
   duration: 22,
-  poster: 8.6,
+  poster: 9.8,
   base: import.meta.url,
   assets,
   strings: {

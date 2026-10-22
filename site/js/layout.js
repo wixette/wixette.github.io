@@ -33,6 +33,8 @@ export const COST = {
   normalShape: 1,
   /** per unit of |log(cell / target)|, when choosing the column count */
   size: 8,
+  /** per viewport height the grid overflows fitHeight by */
+  fold: 8,
 };
 
 /** @param {Shape} s */
@@ -181,14 +183,16 @@ function flow(tiles, columns, shapesOf) {
  * @property {number} [targetCell] the preferred cell size, px
  * @property {number} [minColumns]
  * @property {number} [maxColumns]
+ * @property {number} [fitHeight] the height the whole grid should fit in, px (the viewport under the top bar)
  */
 
 /** @type {Required<LayoutOptions>} */
-export const DEFAULTS = { gap: 10, minTile: 220, minCell: 140, maxCell: 420, targetCell: 300, minColumns: 2, maxColumns: 8 };
+export const DEFAULTS = { gap: 10, minTile: 200, minCell: 140, maxCell: 420, targetCell: 280, minColumns: 2, maxColumns: 8, fitHeight: Infinity };
 
 /**
  * The layout for a grid of the given width: the cheapest perfect packing over the column
- * counts the width allows, counting how far the cell size is from the target.
+ * counts the width allows, counting how far the cell size is from the target and how far
+ * the grid overflows the height it should fit in.
  * @param {TileSpec[]} tiles in their given order
  * @param {number} width of the grid, px
  * @param {LayoutOptions} [options]
@@ -218,7 +222,9 @@ export function chooseLayout(tiles, width, options = {}) {
     const packing = pack(tiles, columns, shapesAt(columns));
     if (!packing) continue;
     const cell = cellOf(columns);
-    const cost = packing.cost + COST.size * Math.abs(Math.log(cell / o.targetCell));
+    const height = packing.rows * cell + (packing.rows - 1) * o.gap;
+    const overflow = Number.isFinite(o.fitHeight) ? Math.max(0, height - o.fitHeight) / o.fitHeight : 0;
+    const cost = packing.cost + COST.size * Math.abs(Math.log(cell / o.targetCell)) + COST.fold * overflow;
     if (!best || cost < best.cost) best = { ...packing, cell, cost, placements: inOrder(packing.placements, tiles) };
   }
   if (best) return best;
