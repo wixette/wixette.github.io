@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>wixette · open source projects</title>
+    <meta name="description" content="Live tiles of wixette's open source projects." />
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href="images/favicon.svg?v=bfff367515" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/fonts.css?v=4259c78eef" />
+    <link rel="stylesheet" href="css/site.css?v=9867cab09a" />
+    <link rel="stylesheet" href="css/stage.css?v=44292793e5" />
+    <!-- Every local URL on this page carries its file's content hash (?v=), and so does every
+         module the scripts import, through this map. pnpm stamp (tools/stamp.mjs) writes
+         them; do not edit them by hand. -->
+    <script type="importmap">
+    {
+      "imports": {
+        "./js/about.js": "./js/about.js?v=23c510a3e1",
+        "./js/anim/ease.js": "./js/anim/ease.js?v=5a95c3afe1",
+        "./js/anim/kit.js": "./js/anim/kit.js?v=b2abb0644e",
+        "./js/anim/player.js": "./js/anim/player.js?v=e9c75ed98a",
+        "./js/anim/rng.js": "./js/anim/rng.js?v=d70bf9c6ae",
+        "./js/anim/stage.js": "./js/anim/stage.js?v=2ac4f1427c",
+        "./js/anim/timeline.js": "./js/anim/timeline.js?v=e4d6454d30",
+        "./js/asset-url.js": "./js/asset-url.js?v=dc019e9645",
+        "./js/grid-width.js": "./js/grid-width.js?v=3c45214bf3",
+        "./js/grid.js": "./js/grid.js?v=bc405f2f1e",
+        "./js/hashes.js": "./js/hashes.js?v=b995458009",
+        "./js/i18n.js": "./js/i18n.js?v=a37e774482",
+        "./js/icons.js": "./js/icons.js?v=ff792a4d99",
+        "./js/layout.js": "./js/layout.js?v=48abb92d2e",
+        "./js/main.js": "./js/main.js?v=a935a7f990",
+        "./js/profile.js": "./js/profile.js?v=9d821cc50a",
+        "./js/strings.js": "./js/strings.js?v=cde00b0a84",
+        "./js/tiles.js": "./js/tiles.js?v=07d6dff0f3",
+        "./showcases/8800-simulator/composition.js": "./showcases/8800-simulator/composition.js?v=78944c2f5c",
+        "./showcases/huashuo/composition.js": "./showcases/huashuo/composition.js?v=89011db82f",
+        "./showcases/index.js": "./showcases/index.js?v=6b50a78551",
+        "./showcases/leibniz-stepped-reckoner/composition.js": "./showcases/leibniz-stepped-reckoner/composition.js?v=8ff24058f3",
+        "./showcases/meowlang/composition.js": "./showcases/meowlang/composition.js?v=34651f615e",
+        "./showcases/p5.anims/composition.js": "./showcases/p5.anims/composition.js?v=7d4516f045"
+      }
+    }
+    </script>
+    <script type="module" src="js/main.js?v=a935a7f990"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="./">
+        <img src="images/logo.svg?v=bfff367515" alt="" width="32" height="32" />
+        <span>wixette</span>
+      </a>
+      <div class="actions">
+        <div class="lang" role="group" data-i18n-aria="lang.label">
+          <button type="button" data-lang="en" lang="en">EN</button>
+          <button type="button" data-lang="zh" lang="zh-CN">中文</button>
+        </div>
+        <button class="icon-btn" id="about-open" type="button" aria-haspopup="dialog" data-i18n-aria="about.open"></button>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro">
+        <p class="prompt"><span class="user" data-i18n="intro.user">wixette@github</span>:~$ <span class="cmd" data-i18n="intro.cmd">ls ~/open-source</span><span class="caret"></span></p>
+        <h1 class="headline">
+          <span data-i18n="intro.line1">Things I build</span><br />
+          <span class="hl" data-i18n="intro.line2">in the open.</span><span class="count"></span>
+        </h1>
+      </section>
+      <div class="grid-wrap">
+        <ul class="grid" id="grid" data-i18n-aria="grid.label"></ul>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p><span data-i18n="footer.copyright">© 2026 Yonggang Wang</span><span class="sep">/</span><span data-i18n="footer.licence">Code Apache-2.0 · Art CC BY-SA 4.0</span><span class="sep">/</span><a href="https://github.com/wixette/wixette.github.io" data-i18n="footer.source">Source</a></p>
+      <p class="solver" aria-hidden="true"></p>
+    </footer>
+
+    <dialog class="about" id="about"></dialog>
+
+    <noscript><p style="padding: 24px">This page needs JavaScript. / 本页需要 JavaScript。</p></noscript>
+  </body>
+</html>
