@@ -300,11 +300,12 @@ export class Kit {
 
   /**
    * A cutout (or several poses of one, for flipTo), placed by its anchor: the feet
-   * (bottom centre) by default, or the centre. Give its height or its width in stage px.
+   * (bottom centre) by default, the centre, or the bottom-left corner (a pencil's tip).
+   * Give its height or its width in stage px.
    * Hidden until an entrance unless visible.
    * @param {Scene} scene
    * @param {string | string[]} names
-   * @param {{ x: number; y: number; h?: number; w?: number; anchor?: 'bottom' | 'center'; z?: number; flip?: boolean; rot?: number; visible?: boolean }} o
+   * @param {{ x: number; y: number; h?: number; w?: number; anchor?: 'bottom' | 'center' | 'bottomLeft'; z?: number; flip?: boolean; rot?: number; visible?: boolean }} o
    */
   sprite(scene, names, { x, y, h, w, anchor = 'bottom', z, flip = false, rot = 0, visible = false }) {
     const list = [names].flat();
@@ -324,8 +325,8 @@ export class Kit {
       Object.assign(img.style, {
         width: `${round(width)}px`,
         height: `${round(height)}px`,
-        left: `${round(-width / 2)}px`,
-        top: `${round(anchor === 'bottom' ? -height : -height / 2)}px`,
+        left: `${round(anchor === 'bottomLeft' ? 0 : -width / 2)}px`,
+        top: `${round(anchor === 'center' ? -height / 2 : -height)}px`,
         transform: flip ? 'scaleX(-1)' : '',
       });
       poses[name] = this.actor(new El(img, { opacity: i === 0 ? 1 : 0 }));
@@ -539,6 +540,7 @@ export class Kit {
 
   /**
    * Monospace text typed one character at a time, with a block cursor; left-aligned at (x, y).
+   * Hidden until shown (show, fadeIn), so the cursor does not blink early.
    * @param {Scene} scene
    * @param {string} text
    * @param {{ x: number; y: number; size?: number; color?: string; cursor?: boolean; width?: number }} o
@@ -547,7 +549,7 @@ export class Kit {
     const box = this.el(scene.cam.el, 'div', 'k-typer', { left: `${x}px`, top: `${y}px`, fontSize: `${size}px`, color, fontFamily: FONT.mono });
     if (width) box.style.width = `${width}px`;
     const chars = [...text];
-    const actor = new El(box, { chars: 0, cursor: cursor ? 1 : 0 });
+    const actor = new El(box, { chars: 0, cursor: cursor ? 1 : 0, opacity: 0 });
     let last = '';
     actor.extra = (st) => {
       const blink = st.cursor > 0.5 && Math.floor((st.blink ?? 0) * 2.5) % 2 === 0;

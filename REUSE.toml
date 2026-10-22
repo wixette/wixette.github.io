@@ -1,0 +1,66 @@
+version = 1
+
+# Default: everything original is CC-BY-SA-4.0 (docs, art prompts, the generated images,
+# the animations' texts); code is Apache-2.0. More specific annotations below override these
+# (REUSE: last match wins). The licence texts are in LICENSES/.
+
+[[annotations]]
+path = "**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 wixette.github.io contributors"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = ["**/*.js", "**/*.mjs", "**/*.json", "**/*.toml", "**/*.yaml", "**/*.yml", "**/*.html", "**/*.css", ".gitignore", ".npmrc", ".env.example", ".github/**", "pnpm-lock.yaml"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 wixette.github.io contributors"
+SPDX-License-Identifier = "Apache-2.0"
+
+# The prompts are content, not code.
+[[annotations]]
+path = "art/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 wixette.github.io contributors"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+# The animations' images: generated with OpenAI's image model from the prompts in art/,
+# then trimmed and shadowed (tools/art.mjs). Released by the owner under CC BY-SA 4.0.
+[[annotations]]
+path = "site/showcases/*/assets/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 wixette.github.io contributors (generated with an OpenAI image model)"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+# ---- Third-party material ----------------------------------------------------
+
+# Fonts, copied unchanged from their npm packages (pnpm vendor), each with its LICENSE.
+[[annotations]]
+path = "site/vendor/fonts/bricolage-grotesque/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2022 The Bricolage Grotesque Project Authors"
+SPDX-License-Identifier = "OFL-1.1"
+
+[[annotations]]
+path = "site/vendor/fonts/jetbrains-mono/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2020 The JetBrains Mono Project Authors"
+SPDX-License-Identifier = "OFL-1.1"
+
+[[annotations]]
+path = "site/vendor/fonts/caveat-brush/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2015 Impallari Type"
+SPDX-License-Identifier = "OFL-1.1"
+
+[[annotations]]
+path = "site/vendor/fonts/patrick-hand/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2010 Patrick Wagesreiter"
+SPDX-License-Identifier = "OFL-1.1"
+
+# The Material Symbols paths gathered into one module (pnpm vendor).
+[[annotations]]
+path = "site/js/icons.js"
+precedence = "override"
+SPDX-FileCopyrightText = "Google LLC"
+SPDX-License-Identifier = "Apache-2.0"

@@ -1,0 +1,68 @@
+{
+  "items": [
+    {
+      "name": "ref",
+      "kind": "ref",
+      "prompt": "(1) an Altair 8800 computer from 1975, seen from the front: a wide low box with a dark blue front panel and silver-grey sides, a row of small red LED lamps across the panel and a row of silver toggle switches below them, no screen, no keyboard; (2) a cheerful kid from the 1970s with big round glasses, a brown bowl haircut and an orange-and-mustard striped t-shirt; (3) a Teletype ASR-33 terminal: a cream-grey typewriter-like machine on a stand with a roll of paper on top; (4) a modern silver laptop, open, its screen showing a tiny blue computer front panel with red lamps."
+    },
+    {
+      "name": "altair",
+      "kind": "sprite",
+      "prompt": "The Altair 8800 computer from the model sheet, seen straight from the front: a wide low box with a dark blue front panel, silver-grey sides and top, a row of small red LED lamps across the upper panel and a row of silver toggle switches along the lower panel. No screen, no keyboard, no text or logo."
+    },
+    {
+      "name": "kid_flip",
+      "kind": "sprite",
+      "prompt": "The 1970s kid from the model sheet (big round glasses, brown bowl haircut, orange-and-mustard striped t-shirt), full body, standing in three-quarter view facing right, one arm reaching forward with a pointing finger as if flipping a switch, tongue out in concentration."
+    },
+    {
+      "name": "kid_cheer",
+      "kind": "sprite",
+      "prompt": "The 1970s kid from the model sheet (big round glasses, brown bowl haircut, orange-and-mustard striped t-shirt), full body, facing front, both arms up in a big cheer, mouth wide open, delighted."
+    },
+    {
+      "name": "teletype",
+      "kind": "sprite",
+      "prompt": "The Teletype ASR-33 terminal from the model sheet, front view: a chunky cream-grey teleprinter with a keyboard, on its own small stand, a roll of blank paper feeding up out of the top. No text on the paper."
+    },
+    {
+      "name": "laptop",
+      "kind": "sprite",
+      "prompt": "A modern silver laptop, open, seen from the front, its screen showing a small cute picture of a dark blue computer front panel with red lamps and silver switches. No logo, no text."
+    },
+    {
+      "name": "bg_room",
+      "kind": "bg",
+      "prompt": "A cosy 1970s hobby room: wallpaper with soft retro stripes in mustard, orange and brown along the top edge only, a plain cream wall in the middle, and a long wooden desk top running along the bottom edge."
+    },
+    {
+      "name": "bg_paper",
+      "kind": "bg",
+      "prompt": "Blank cream cold-press watercolor paper with faint fibers, a soft warm vignette, a pale teal watercolor wash along the bottom edge and a few faint pencil sparkle doodles in the corners."
+    },
+    {
+      "name": "year.en",
+      "kind": "text",
+      "size": "1536x1024",
+      "prompt": "A hand-lettered cartoon title that reads exactly \"1975\" (four digits, nothing else). Huge chunky playful digits, each digit in a different paper color, with tiny red LED lamps dotted along the top of the digits like a computer front panel. Spell it exactly."
+    },
+    {
+      "name": "year.zh",
+      "kind": "text",
+      "size": "1536x1024",
+      "prompt": "一个手绘卡通标题，文字必须准确为「1975年」（四个阿拉伯数字加一个汉字“年”，不要其他文字）。粗壮可爱的字体，每个字是不同颜色的剪纸，数字顶上点缀几颗像电脑面板一样的小红灯。字必须写对。"
+    },
+    {
+      "name": "browser.en",
+      "kind": "text",
+      "size": "1536x1024",
+      "prompt": "A hand-lettered cartoon title that reads exactly \"Now in your browser!\" (four words, nothing else), on two lines: \"Now in your\" above \"browser!\". Chunky playful letters, each word in a different paper color; the dot of the exclamation mark is a tiny red LED lamp. Spell it exactly."
+    },
+    {
+      "name": "browser.zh",
+      "kind": "text",
+      "size": "1536x1024",
+      "prompt": "一个手绘卡通标题，文字必须准确为「浏览器里就能玩！」（七个汉字加感叹号，不要其他文字），排成一行。粗壮可爱的字体，每个字是不同颜色的剪纸，感叹号的圆点是一颗小红灯。字必须写对。"
+    }
+  ]
+}

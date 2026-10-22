@@ -1,0 +1,78 @@
+{
+  "items": [
+    {
+      "name": "ref",
+      "kind": "ref",
+      "prompt": "(1) a thick open Chinese novel book with a red cloth cover and cream pages; (2) a kind old storyteller grandpa with a long white beard, a dark teal Chinese jacket and a folding fan; (3) a young woman in a mustard qipao with a neat bun; (4) a cheeky little boy with a tomato red jacket and a tuft of hair; (5) a silver laptop, open, its screen showing colourful sound waves; (6) a big pair of over-ear headphones in teal and cream."
+    },
+    {
+      "name": "book",
+      "kind": "sprite",
+      "prompt": "The thick Chinese novel from the model sheet, lying open and seen from the front and slightly above, red cloth cover, cream pages fanning up, a few tiny sparkles above the pages. No readable text on the pages."
+    },
+    {
+      "name": "grandpa",
+      "kind": "sprite",
+      "prompt": "The old storyteller grandpa from the model sheet (long white beard, dark teal Chinese jacket), full body, facing right, holding a folding fan up, mouth open telling a story, warm and wise."
+    },
+    {
+      "name": "girl",
+      "kind": "sprite",
+      "prompt": "The young woman from the model sheet (mustard qipao, neat bun), full body, facing front, one hand raised as she talks brightly, a cheerful open smile."
+    },
+    {
+      "name": "boy",
+      "kind": "sprite",
+      "prompt": "The cheeky little boy from the model sheet (tomato red jacket, tuft of hair), full body, facing left, cupping one hand by his mouth and shouting, mischievous grin."
+    },
+    {
+      "name": "laptop",
+      "kind": "sprite",
+      "prompt": "The silver laptop from the model sheet, open, seen from the front, its screen showing colourful sound waves in red, teal and mustard. No logo, no text."
+    },
+    {
+      "name": "headphones",
+      "kind": "sprite",
+      "prompt": "The big over-ear headphones from the model sheet, teal and cream, seen from the front, a few small musical-note doodles around them."
+    },
+    {
+      "name": "audiobook",
+      "kind": "sprite",
+      "prompt": "An audiobook as a cute object: a closed red cloth book standing upright with a round mustard play button on its cover and a few colourful sound-wave ribbons flowing out of its pages. No text."
+    },
+    {
+      "name": "bg_paper",
+      "kind": "bg",
+      "prompt": "Blank cream cold-press watercolor paper with faint fibers and a soft warm vignette, a faint red Chinese cloud pattern in the top corners, and a pale jade-green watercolor wash along the bottom edge."
+    },
+    {
+      "name": "bg_night",
+      "kind": "bg",
+      "prompt": "A quiet desk at night: a deep navy watercolor sky with white splatter-paint stars across the top, a warm round glow of a desk lamp at the far right edge, and a wooden desk top along the bottom edge."
+    },
+    {
+      "name": "who.en",
+      "kind": "text",
+      "size": "1536x1024",
+      "prompt": "A hand-lettered cartoon title that reads exactly \"Who's speaking?\" (two words, nothing else), on one line. Chunky playful letters, each in a different paper color, with a tiny speech bubble drawn on the question mark. Spell it exactly."
+    },
+    {
+      "name": "who.zh",
+      "kind": "text",
+      "size": "1536x1024",
+      "prompt": "一个手绘卡通标题，文字必须准确为「谁在说话？」（四个汉字加问号，不要其他文字），排成一行。粗壮可爱的字体，每个字是不同颜色的剪纸，问号旁画一个小小的对话气泡。字必须写对。"
+    },
+    {
+      "name": "audiobooks.en",
+      "kind": "text",
+      "size": "1536x1024",
+      "prompt": "A hand-lettered cartoon title that reads exactly \"Multi-voice audiobooks\" (two words, nothing else), on two lines: \"Multi-voice\" above \"audiobooks\". Chunky playful letters, each in a different paper color, with little sound waves flowing from the last letter. Spell it exactly, including the hyphen."
+    },
+    {
+      "name": "audiobooks.zh",
+      "kind": "text",
+      "size": "1536x1024",
+      "prompt": "一个手绘卡通标题，文字必须准确为「多角色有声书」（六个汉字，不要其他文字），排成一行。粗壮可爱的字体，每个字是不同颜色的剪纸，最后一个字旁边飘出彩色的声波。字必须写对。"
+    }
+  ]
+}

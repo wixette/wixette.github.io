@@ -1,0 +1,41 @@
+{
+  "items": [
+    {
+      "name": "ref",
+      "kind": "ref",
+      "prompt": "(1) a big friendly yellow pencil with a pink eraser and a sharpened graphite tip, drawn diagonally with the tip at the bottom left and the eraser at the top right, with a small happy face on its side; (2) an open spiral sketchbook with blank cream pages; (3) a little round paint palette with dabs of tomato red, mustard, teal and ultramarine."
+    },
+    {
+      "name": "pencil",
+      "kind": "sprite",
+      "prompt": "The big friendly yellow pencil from the model sheet, alone, drawn diagonally at 45 degrees with the sharpened graphite tip pointing to the bottom-left corner and the pink eraser at the top-right corner, a small happy face on its side."
+    },
+    {
+      "name": "palette",
+      "kind": "sprite",
+      "prompt": "The little round paint palette from the model sheet, with dabs of tomato red, mustard, teal and ultramarine paint and a thumb hole."
+    },
+    {
+      "name": "bg_sketch",
+      "kind": "bg",
+      "prompt": "A blank page of a spiral sketchbook filling the frame: cream drawing paper with faint fibers, a row of silver spiral rings along the very top edge, faint pencil smudges near the corners, otherwise empty."
+    },
+    {
+      "name": "bg_kraft",
+      "kind": "bg",
+      "prompt": "Brown kraft cardboard with small fibre flecks, like a pinboard, a strip of pink washi tape across the top-right corner, otherwise plain."
+    },
+    {
+      "name": "draw.en",
+      "kind": "text",
+      "size": "1536x1024",
+      "prompt": "A hand-lettered cartoon title that reads exactly \"Watch it draw!\" (three words, nothing else), on two lines: \"Watch it\" above \"draw!\". Chunky playful letters, each in a different paper color; a little yellow pencil is drawing the exclamation mark. Spell it exactly."
+    },
+    {
+      "name": "draw.zh",
+      "kind": "text",
+      "size": "1536x1024",
+      "prompt": "一个手绘卡通标题，文字必须准确为「一笔一笔画出来！」（七个汉字加感叹号，不要其他文字），排成一行。粗壮可爱的字体，每个字是不同颜色的剪纸，一支小黄铅笔正在画感叹号。字必须写对。"
+    }
+  ]
+}
