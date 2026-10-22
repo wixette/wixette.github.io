@@ -49,6 +49,7 @@ export class Tile {
     this.link.href = showcase.repo;
     this.link.target = '_blank';
     this.link.rel = 'noopener';
+    this.link.draggable = false;
 
     const chips = div(this.el, 'tile-chips');
     /** @type {HTMLAnchorElement | null} */
@@ -58,6 +59,7 @@ export class Tile {
       this.tryChip.className = 'chip chip-try';
       this.tryChip.target = '_blank';
       this.tryChip.rel = 'noopener';
+      this.tryChip.draggable = false;
     }
     // The GitHub sticker. With a mouse, the whole tile is this link and clicks pass through
     // the sticker to it; on a touch screen, where a tap on the tile plays it, the sticker is
@@ -67,6 +69,7 @@ export class Tile {
     this.ghChip.href = showcase.repo;
     this.ghChip.target = '_blank';
     this.ghChip.rel = 'noopener';
+    this.ghChip.draggable = false;
 
     this.progress = span(div(this.el, 'tile-progress'), '');
 
@@ -123,7 +126,8 @@ export class Tile {
       this.el.style.setProperty('--ry', '0deg');
     };
     this.el.addEventListener('pointerdown', (e) => {
-      if (reduceMotion.matches || (e.target instanceof Element && e.target.closest('.chip-try'))) return;
+      // Only the primary button: a right-click's menu swallows the pointerup, leaving it tilted.
+      if (e.button !== 0 || reduceMotion.matches || (e.target instanceof Element && e.target.closest('.chip-try'))) return;
       const r = this.el.getBoundingClientRect();
       const px = (e.clientX - r.left) / r.width - 0.5;
       const py = (e.clientY - r.top) / r.height - 0.5;

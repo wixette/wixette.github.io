@@ -11,6 +11,7 @@
   overflow: hidden;
   background: #f3ecdf;
   contain: strict;
+  -webkit-user-select: none;
   user-select: none;
 }
 

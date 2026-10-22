@@ -34,6 +34,7 @@ export function initAbout(dialog, opener) {
     avatar.className = 'avatar';
     avatar.src = assetUrl(PROFILE.avatar);
     avatar.alt = '';
+    avatar.draggable = false;
     const who = document.createElement('div');
     // The name's lines share one fixed height: two in English, one in Chinese.
     const name = document.createElement('h2');
@@ -65,6 +66,7 @@ export function initAbout(dialog, opener) {
       a.href = link.href;
       a.target = '_blank';
       a.rel = 'noopener me';
+      a.draggable = false;
       a.append(icon(link.icon, 20), document.createTextNode(link.label[l]));
       li.append(a);
       links.append(li);
@@ -74,9 +76,23 @@ export function initAbout(dialog, opener) {
   };
 
   opener.addEventListener('click', () => dialog.showModal());
-  // A click on the backdrop closes it.
+  // A click on the backdrop closes it: one that both starts and ends there. A drag that
+  // starts in the dialog (selecting its text) and ends on the backdrop, or the other way
+  // round, also lands its click on the dialog element, and must not close it; nor must a
+  // click on the dialog's own border or scroll bar, which the dialog element receives too.
+  /** @param {MouseEvent} e */
+  const onBackdrop = (e) => {
+    if (e.target !== dialog) return false;
+    const r = dialog.getBoundingClientRect();
+    return e.clientX < r.left || e.clientX >= r.right || e.clientY < r.top || e.clientY >= r.bottom;
+  };
+  let pressedBackdrop = false;
+  dialog.addEventListener('pointerdown', (e) => {
+    pressedBackdrop = e.isPrimary && onBackdrop(e);
+  });
   dialog.addEventListener('click', (e) => {
-    if (e.target === dialog) dialog.close();
+    if (pressedBackdrop && onBackdrop(e)) dialog.close();
+    pressedBackdrop = false;
   });
   onLang(render);
   render();

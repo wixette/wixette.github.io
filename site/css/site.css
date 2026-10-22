@@ -104,6 +104,8 @@ a {
   backdrop-filter: blur(16px) saturate(1.4);
   border-bottom: 1px solid transparent;
   transition: border-color 200ms var(--ease), background-color 200ms var(--ease);
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .topbar.scrolled {
@@ -127,6 +129,7 @@ a {
   display: block;
   width: 32px;
   height: 32px;
+  -webkit-user-drag: none;
 }
 
 .actions {
@@ -184,6 +187,8 @@ a {
   color: var(--on);
   cursor: pointer;
   transition: background-color 200ms var(--ease);
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .icon-btn:hover {
@@ -305,6 +310,10 @@ main {
   transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) scale(var(--press, 1));
   transition: transform 450ms var(--ease-out), box-shadow 300ms var(--ease);
   -webkit-tap-highlight-color: transparent;
+  /* a tile is pressed, not read: no text selection, no dragging, no long-press menu */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .tile::after {
@@ -472,6 +481,7 @@ main {
   inset: 0;
   z-index: 4;
   border-radius: inherit;
+  -webkit-user-drag: none;
 }
 
 .tile-chips {
@@ -516,6 +526,7 @@ main {
   text-decoration: none;
   white-space: nowrap;
   box-shadow: 3px 3px 0 var(--accent);
+  -webkit-user-drag: none;
   transition: transform 150ms var(--ease), box-shadow 150ms var(--ease);
 }
 
@@ -704,6 +715,9 @@ main {
   flex: none;
   width: 92px;
   height: 92px;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* The name takes one height in both languages: two lines of English, one of Chinese. */
@@ -758,6 +772,8 @@ main {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--on-var);
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .about-links {
@@ -782,6 +798,9 @@ main {
   font-weight: 600;
   text-decoration: none;
   transition: background-color 200ms var(--ease), border-color 200ms var(--ease);
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .link-chip .icon {
