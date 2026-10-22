@@ -240,23 +240,29 @@ main {
 }
 
 .headline {
+  /* Two lines of the same height in both languages, so switching language moves nothing
+     below the headline. */
+  --line: clamp(38px, 6vw, 96px);
   margin: 0;
   font-weight: 800;
   font-stretch: 78%;
   font-size: clamp(40px, 6.4vw, 104px);
-  line-height: 0.92;
+  line-height: var(--line);
   letter-spacing: -0.035em;
-  text-wrap: balance;
 }
 
 :lang(zh) .headline {
   font-size: clamp(32px, 5vw, 80px);
-  line-height: 1.12;
   letter-spacing: 0;
 }
 
+.headline > span {
+  display: block;
+  height: var(--line);
+  white-space: nowrap;
+}
+
 .headline .hl {
-  display: inline-block;
   color: var(--lime);
   font-style: italic;
   font-variation-settings: 'opsz' 96;
@@ -538,17 +544,13 @@ main {
   box-shadow: 1px 1px 0 #fbf7ee;
 }
 
-/* Narrow tiles: Try it alone, or else a GitHub arrow without its word. */
+/* Narrow tiles keep both buttons, GitHub always with its word: Try it shrinks to its icon. */
 @container (max-width: 300px) {
-  .chip-try + .chip-gh {
-    display: none;
+  .chip-try {
+    padding: 0 7px;
   }
 
-  .chip-gh {
-    padding: 0 6px;
-  }
-
-  .chip-gh .chip-label {
+  .chip-try .chip-label {
     display: none;
   }
 }
@@ -587,29 +589,6 @@ main {
 
 .touch .tile-chips .chip {
   pointer-events: auto;
-}
-
-/* Narrow touch tiles keep both: Try it as its icon alone, GitHub with its word. */
-@container (max-width: 300px) {
-  .touch .chip-try + .chip-gh {
-    display: inline-flex;
-  }
-
-  .touch .chip-gh {
-    padding: 0 12px 0 10px;
-  }
-
-  .touch .chip-gh .chip-label {
-    display: inline;
-  }
-
-  .touch .chip-try {
-    padding: 0 7px;
-  }
-
-  .touch .chip-try .chip-label {
-    display: none;
-  }
 }
 
 .tile-progress {

@@ -103,17 +103,18 @@ the dialog uses a Material 3 dark tonal surface. On top of that:
   panel), Leibniz brass, Huashuo jade, Meowlang violet, p5.animS p5's pink. The static tile is
   tinted with it; the playing tile shows the animation in its own colours with an accent frame
   and progress bar.
+- **Headline:** two lines of a fixed height (`--line`, the same in both languages), so
+  switching language never moves the grid below it.
 - **Type:** Bricolage Grotesque (variable: weight, width, optical size) for titles and
   headline, set heavy and slightly condensed; JetBrains Mono for meta text (indices, tags,
   prompt line, footer). Chinese uses the system's sans (PingFang SC, Noto Sans SC, Microsoft
   YaHei), so no Chinese web font is downloaded.
 - **Stickers:** the Try it and GitHub chips are paper stickers with a black border and a hard
   offset shadow, a nod to the paper-cutout animations: Try it in the project's accent, GitHub
-  in paper white. With a mouse they sit at the bottom right and show only on the playing (or
-  focused) tile; on narrow tiles Try it shows alone (the tile itself is the GitHub link), or,
-  without a demo, GitHub shrinks to its arrow. On touch screens they show on every tile, all
-  the time, in a row under the tagline: GitHub always (it is the way to the repository there),
-  with Try it before it; on narrow tiles Try it shrinks to its ▶ icon.
+  in paper white. Every tile has the GitHub button, always with its word; projects with a
+  demo have Try it before it, which shrinks to its ▶ icon on narrow tiles (under 300 px).
+  With a mouse they sit at the bottom right and show only on the playing (or focused) tile;
+  on touch screens they show on every tile, all the time, in a row under the tagline.
 - **Corners:** 14 px on tiles, 28 px on the dialog (Material 3 extra-large), full pills on
   chips and the language switch. Gaps between tiles: 10 px.
 
