@@ -1,0 +1,39 @@
+{
+  "name": "wixette.github.io",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A live-tile showcase of wixette's open source projects, in English and Simplified Chinese.",
+  "license": "Apache-2.0",
+  "homepage": "https://wixette.github.io/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wixette/wixette.github.io.git"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "serve": "node tools/serve.mjs",
+    "test": "node --test \"tests/**/*.test.js\"",
+    "typecheck": "tsc -p tsconfig.json",
+    "check": "pnpm typecheck && pnpm test",
+    "stamp": "node tools/stamp.mjs",
+    "vendor": "node tools/vendor.mjs",
+    "layout": "node tools/layout-preview.mjs",
+    "art": "node tools/art.mjs",
+    "social": "node tools/social.mjs",
+    "version": "node tools/stamp.mjs"
+  },
+  "devDependencies": {
+    "@fontsource-variable/bricolage-grotesque": "5.3.0",
+    "@fontsource-variable/jetbrains-mono": "5.3.0",
+    "@fontsource/caveat-brush": "5.3.0",
+    "@fontsource/patrick-hand": "5.3.0",
+    "@material-symbols/svg-400": "0.48.1",
+    "@types/node": "^24.19.2",
+    "simple-icons": "16.35.0",
+    "typescript": "7.0.2"
+  }
+}

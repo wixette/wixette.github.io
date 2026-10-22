@@ -1,0 +1,46 @@
+// @ts-check
+// The page's own strings. Showcases keep theirs in showcases/index.js and their compositions.
+// Both languages must have every key (tests/i18n.test.js).
+
+export const STRINGS = {
+  en: {
+    'meta.title': 'wixette · open source projects',
+    'meta.description': "Live tiles of wixette's open source projects: an Altair 8800 simulator, Leibniz's stepped reckoner in 3D, multi-voice audiobooks, a language for cats and more.",
+    'lang.label': 'Language',
+    'about.open': 'About me',
+    'about.close': 'Close',
+    'about.links': 'Elsewhere',
+    'intro.user': 'wixette@github',
+    'intro.cmd': 'ls ~/open-source',
+    'intro.line1': 'Things I build',
+    'intro.line2': 'in the open.',
+    'grid.label': 'Projects',
+    'tile.github': 'GitHub',
+    'tile.try': 'Try it',
+    'tile.repoLabel': '{title} on GitHub',
+    'tile.tryLabel': 'Try {title} online',
+    'footer.copyright': '© 2026 Yonggang Wang',
+    'footer.licence': 'Code Apache-2.0 · Art CC BY-SA 4.0',
+    'footer.source': 'Source',
+  },
+  zh: {
+    'meta.title': 'wixette 的开源作品',
+    'meta.description': 'wixette 的开源作品：Altair 8800 模拟器、3D 莱布尼茨步进计算器、多角色有声书、写给猫的编程语言，还有更多。',
+    'lang.label': '语言',
+    'about.open': '关于我',
+    'about.close': '关闭',
+    'about.links': '我的足迹',
+    'intro.user': 'wixette@github',
+    'intro.cmd': 'ls ~/open-source',
+    'intro.line1': '我的开源项目',
+    'intro.line2': '只造好玩的东西',
+    'grid.label': '项目',
+    'tile.github': 'GitHub',
+    'tile.try': '试一试',
+    'tile.repoLabel': 'GitHub 上的 {title}',
+    'tile.tryLabel': '在线试用 {title}',
+    'footer.copyright': '© 2026 Yonggang Wang',
+    'footer.licence': '代码 Apache-2.0 · 美术 CC BY-SA 4.0',
+    'footer.source': '源代码',
+  },
+};

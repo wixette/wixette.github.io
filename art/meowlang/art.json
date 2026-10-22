@@ -1,0 +1,68 @@
+{
+  "items": [
+    {
+      "name": "ref",
+      "kind": "ref",
+      "prompt": "(1) a fluffy round orange tabby cat with white paws and a white chest, big green eyes; (2) a chunky retro computer keyboard in cream with a few teal and mustard keys; (3) a tiny orange kitten face; (4) a few cat paw prints."
+    },
+    {
+      "name": "cat_walk",
+      "kind": "sprite",
+      "prompt": "The orange tabby cat from the model sheet, full body, side view walking to the right, tail up, one paw lifted, very pleased with itself."
+    },
+    {
+      "name": "cat_type",
+      "kind": "sprite",
+      "prompt": "The orange tabby cat from the model sheet, sitting upright facing front, both front paws raised and pressing down as if typing, focused and serious, tongue slightly out."
+    },
+    {
+      "name": "cat_proud",
+      "kind": "sprite",
+      "prompt": "The orange tabby cat from the model sheet, sitting proudly facing front, chest out, eyes closed in a smug smile, tail curled around its paws."
+    },
+    {
+      "name": "keyboard",
+      "kind": "sprite",
+      "prompt": "The chunky retro computer keyboard from the model sheet, seen from the front and slightly above, cream keys with a few teal and mustard keys. No letters or symbols on the keys."
+    },
+    {
+      "name": "kitten",
+      "kind": "sprite",
+      "prompt": "The tiny orange kitten face from the model sheet: just a round head with small ears, big green eyes and a happy little smile."
+    },
+    {
+      "name": "bg_paper",
+      "kind": "bg",
+      "prompt": "Blank cream cold-press watercolor paper with faint fibers, a soft warm vignette, a pale violet watercolor wash along the bottom edge and a few faint pencil paw-print doodles in the corners."
+    },
+    {
+      "name": "bg_kraft",
+      "kind": "bg",
+      "prompt": "Brown kraft cardboard with small fibre flecks, like a pinboard, a strip of pale violet washi tape across the top-left corner, otherwise plain."
+    },
+    {
+      "name": "meow.en",
+      "kind": "text",
+      "size": "1536x1024",
+      "prompt": "A hand-lettered cartoon title that reads exactly \"Meow?\" (one word and a question mark, nothing else). Huge chunky playful letters, each in a different paper color, with little cat ears on top of the M. Spell it exactly."
+    },
+    {
+      "name": "meow.zh",
+      "kind": "text",
+      "size": "1536x1024",
+      "prompt": "一个手绘卡通标题，文字必须准确为「喵？」（一个汉字“喵”加一个问号，不要其他文字）。非常粗壮可爱的字体，剪纸效果，“喵”字顶上长出两只小猫耳朵。字必须写对。"
+    },
+    {
+      "name": "data.en",
+      "kind": "text",
+      "size": "1536x1024",
+      "prompt": "A hand-lettered cartoon caption that reads exactly \"Data is meow.\" (three words and a full stop, nothing else), on two lines: \"Data\" above \"is meow.\". Chunky playful letters, each word in a different paper color; an orange tabby cat's striped tail curls under the words like an underline. Spell it exactly."
+    },
+    {
+      "name": "data.zh",
+      "kind": "text",
+      "size": "1536x1024",
+      "prompt": "一个手绘卡通标语，文字必须准确为「数据就是喵。」（五个汉字加句号，不要其他文字），排成一行。粗壮可爱的字体，每个字是不同颜色的剪纸；一条橘色虎斑猫的尾巴在字下面划出下划线。字必须写对。"
+    }
+  ]
+}

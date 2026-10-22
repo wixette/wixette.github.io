@@ -1,0 +1,51 @@
+{
+  "items": [
+    {
+      "name": "ref",
+      "kind": "ref",
+      "prompt": "(1) Gottfried Wilhelm Leibniz as a cute storybook character: a round friendly face, a huge curly brown baroque wig falling past his shoulders, a long ultramarine blue coat with gold buttons, white lace cravat; (2) Leibniz's stepped reckoner, a calculating machine about 1700: a long low polished oak wooden case with a row of small brass dials and number windows along the top, a big brass crank handle on the right end; (3) a brass stepped drum, the Leibniz wheel: a horizontal brass cylinder with nine raised teeth of increasing length, like a staircase wrapped around it."
+    },
+    {
+      "name": "leibniz_think",
+      "kind": "sprite",
+      "prompt": "Leibniz from the model sheet (huge curly brown baroque wig, ultramarine coat with gold buttons, white lace cravat), full body, standing, facing slightly right, one hand on his chin, thinking hard, eyebrows raised."
+    },
+    {
+      "name": "leibniz_cheer",
+      "kind": "sprite",
+      "prompt": "Leibniz from the model sheet (huge curly brown baroque wig, ultramarine coat with gold buttons, white lace cravat), full body, facing front, one fist up in triumph and a big proud smile, his wig bouncing."
+    },
+    {
+      "name": "machine",
+      "kind": "sprite",
+      "prompt": "The stepped reckoner from the model sheet, seen from the front and slightly above: a long low polished oak wooden case with a row of eight small brass setting dials along the front, a row of small number windows along the top, and a big brass crank handle on the right end. No readable numbers or text."
+    },
+    {
+      "name": "drum",
+      "kind": "sprite",
+      "prompt": "The brass stepped drum from the model sheet, large and alone: a horizontal brass cylinder on a thin axle, with nine raised teeth of steadily increasing length running along it, like a staircase wrapped around the drum. Shiny, friendly, a little sparkle."
+    },
+    {
+      "name": "bg_study",
+      "kind": "bg",
+      "prompt": "A baroque scholar's study around 1700: pale cream wall with a faint wallpaper pattern near the top, a tall window with blue sky at the far left edge, a bookshelf with old books at the far right edge, and a wooden floor strip along the bottom."
+    },
+    {
+      "name": "bg_paper",
+      "kind": "bg",
+      "prompt": "Blank cream cold-press watercolor paper with faint fibers, a soft warm vignette, a pale mustard watercolor wash along the bottom edge and a few faint pencil sparkle doodles in the corners."
+    },
+    {
+      "name": "crank.en",
+      "kind": "text",
+      "size": "1536x1024",
+      "prompt": "A hand-lettered cartoon title that reads exactly \"Turn the crank!\" (three words, nothing else), on two lines: \"Turn the\" above \"crank!\". Chunky playful letters, each in a different paper color; the letter T is a little brass hand crank. Spell it exactly."
+    },
+    {
+      "name": "crank.zh",
+      "kind": "text",
+      "size": "1536x1024",
+      "prompt": "一个手绘卡通标题，文字必须准确为「摇动曲柄！」（四个汉字加感叹号，不要其他文字），排成一行。粗壮可爱的字体，每个字是不同颜色的剪纸；“摇”字左边画一个小小的黄铜手摇曲柄。字必须写对。"
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+/* The animation stage and the paper-cutout kit's elements (js/anim/kit.js). Sizes are stage
+   pixels: the stage is 2000 × 1000 and scaled to cover its box. */
+
+.stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2000px;
+  height: 1000px;
+  transform-origin: 0 0;
+  overflow: hidden;
+  background: #f3ecdf;
+  contain: strict;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.k-scene,
+.k-clip,
+.k-cam,
+.k-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.k-scene {
+  transform-origin: 50% 50%;
+}
+
+.k-clip {
+  overflow: hidden;
+}
+
+.k-cam {
+  transform-origin: 50% 50%;
+}
+
+.k-bg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.k-torn {
+  position: absolute;
+  overflow: visible;
+  filter: drop-shadow(0 0 10px rgb(40 25 10 / 0.45));
+}
+
+.k-doodles {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  width: 2000px;
+  height: 1000px;
+  overflow: visible;
+  pointer-events: none;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.k-doodles text {
+  font-family: 'Patrick Hand', 'Kaiti SC', sans-serif;
+  font-weight: 700;
+  stroke: none;
+}
+
+.k-cut {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform-origin: 0 0;
+}
+
+.k-idle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+}
+
+.k-idle img {
+  position: absolute;
+  display: block;
+  max-width: none;
+  transform-origin: 50% 50%;
+}
+
+.k-fallback {
+  position: absolute;
+  font-family: 'Caveat Brush', 'Kaiti SC', 'STKaiti', 'KaiTi', cursive;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  white-space: pre-line;
+  -webkit-text-stroke: 0.14em #fbf7ee;
+  paint-order: stroke fill;
+  filter: drop-shadow(0 6px 4px rgb(74 48 22 / 0.3));
+}
+
+.k-caption,
+.k-typer,
+.k-number {
+  position: absolute;
+  line-height: 1.15;
+  transform-origin: 0 0;
+}
+
+.k-caption {
+  white-space: pre;
+}
+
+.k-caption.center,
+.k-number.center {
+  translate: -50% 0;
+  transform-origin: 50% 0;
+}
+
+.k-typer {
+  white-space: pre-wrap;
+  line-height: 1.3;
+}
+
+.k-number {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: pre;
+}
+
+.k-tag {
+  position: absolute;
+  left: 0;
+  top: 0;
+  translate: -50% -50%;
+  padding: 0.22em 0.7em 0.3em;
+  border-radius: 0.16em;
+  line-height: 1.1;
+  white-space: nowrap;
+  box-shadow:
+    0 9px 7px rgb(74 48 22 / 0.3),
+    0 2px 1.5px rgb(0 0 0 / 0.2);
+}
+
+.k-tape {
+  position: absolute;
+  left: 50%;
+  top: -0.32em;
+  width: 1.7em;
+  height: 0.55em;
+  translate: -50% 0;
+  rotate: -4deg;
+  opacity: 0.78;
+}
+
+.k-ransom {
+  position: absolute;
+  translate: -50% -50%;
+  text-align: center;
+  line-height: 1;
+}
+
+.k-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.06em;
+  margin: 0.1em 0;
+}
+
+.k-tile {
+  display: inline-block;
+  padding: 0.06em 0.14em 0.1em;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 5px 5px rgb(0 0 0 / 0.25);
+}
+
+.k-gap {
+  display: inline-block;
+  width: 0.35em;
+}
+
+.k-confetti {
+  position: absolute;
+  width: 20px;
+  height: 13px;
+}
+
+.k-flash {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+}
