@@ -92,6 +92,5 @@ with the owner reviewing quality and visuals.
 
 ## Not in v1
 
-- Deployment. The GitHub Actions workflow is added once the owner approves the page.
 - Sound of any kind.
 - Analytics, cookies or any request to another site.

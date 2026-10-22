@@ -1,7 +1,7 @@
 name: Tests
 
-# Types, tests and stamps on every push and pull request. Deployment comes later
-# (docs/requirements.md, "Not in v1").
+# Types, tests and stamps on every push and pull request. Deployment is deploy.yml, which
+# runs the same checks before it publishes.
 
 on:
   push:

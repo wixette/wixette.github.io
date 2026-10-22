@@ -38,8 +38,10 @@ tests/                        node --test
 docs/                         this, the requirements, and the showcase playbook
 ```
 
-**D1. Publish `site/` only.** When deployment is added it will be a GitHub Actions workflow
-that runs the checks and uploads `site/` unchanged. Nothing is built; the folder is the site.
+**D1. Publish `site/` only.** `.github/workflows/deploy.yml` runs the checks on every push to
+`main` and uploads `site/` unchanged to GitHub Pages, whose source must be set to "GitHub
+Actions" (not a branch, which would publish the whole repository through Jekyll). Nothing is
+built; the folder is the site.
 
 ## 2. Engineering
 

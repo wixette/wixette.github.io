@@ -27,6 +27,12 @@ pnpm stamp        # after changing any file under site/: the content-hash URLs
 pnpm social       # after changing the logo or the page's look: touch icon and link preview
 ```
 
+## Publish it
+
+Every push to `main` runs the checks and publishes `site/` to GitHub Pages
+(`.github/workflows/deploy.yml`). The repository's Pages source must be **GitHub Actions**
+(Settings → Pages), not a branch.
+
 ## Documents
 
 | Document | What it is |
