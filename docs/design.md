@@ -289,7 +289,8 @@ prototype's style guide. The tool:
    (so no CSS filter runs during playback) and writes WebP to `site/showcases/<id>/assets/`,
    plus `assets.js` with every image's file name and size. The model leaves near-invisible
    specks (alpha under 1%) far from the art; the trim box comes from a thresholded alpha
-   mask, and the specks are cleared. A whole animation comes to 120–180 KB.
+   mask, and the specks are cleared. A whole animation's images come to 0.6–1.8 MB, of which
+   a page loads only the current language's text art.
 
 The full-size PNGs are never committed; the WebP files are the published art.
 
