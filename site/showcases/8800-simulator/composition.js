@@ -9,7 +9,7 @@
 // 10.2  A dorm room. Two young programmers write BASIC for a machine they have never seen,
 //       on an emulator: the weeks count 1 to 8 while the coffee mugs double, 1, 2, 4, 8.
 //       All of it in 4 KB.
-// 16.0  The paper tape reaches Albuquerque. First run: the Teletype prints MEMORY SIZE?
+// 16.0  The first run on a real Altair, from the paper tape: the Teletype prints MEMORY SIZE?
 //       It worked!
 // 20.6  Today: a young hacker and a laptop running the simulator. Your turn.
 
@@ -34,7 +34,7 @@ export default {
       week: 'WEEK {n}',
       noAltair: 'no Altair, just an emulator',
       kb: 'all in 4 KB',
-      tape: 'paper tape → Albuquerque',
+      firstRun: 'first run on a real Altair',
       web: 'in your browser',
     },
     zh: {
@@ -48,7 +48,7 @@ export default {
       week: '第 {n} 周',
       noAltair: '手里没有 Altair，只有模拟器',
       kb: '一共只有 4 KB',
-      tape: '纸带 → 阿尔伯克基',
+      firstRun: '第一次在真 Altair 上运行',
       web: '浏览器里就能玩',
     },
   },
@@ -157,7 +157,7 @@ export default {
     k.slideIn(tty, 16.4, { dx: 500, dur: 0.55 });
     const carrier = k.sprite(s4, 'coder_tape', { x: 620, y: 995, h: 470, z: 5 });
     k.slideIn(carrier, 16.5, { dx: -500 });
-    const tapeTag = k.tag(s4, k.t('tape'), { x: 840, y: 450, rot: -3, tape: C.teal, size: 44 });
+    const tapeTag = k.tag(s4, k.t('firstRun'), { x: 1000, y: 250, rot: -3, tape: C.teal, size: 44 });
     k.pop(tapeTag, 16.8);
     k.fadeOut(tapeTag, 18.2, 0.2);
     const paper = k.el(s4.cam.el, 'div', '', {
