@@ -3,66 +3,112 @@
     {
       "name": "ref",
       "kind": "ref",
-      "prompt": "(1) an Altair 8800 computer from 1975, seen from the front: a wide low box with a dark blue front panel and silver-grey sides, a row of small red LED lamps across the panel and a row of silver toggle switches below them, no screen, no keyboard; (2) a cheerful kid from the 1970s with big round glasses, a brown bowl haircut and an orange-and-mustard striped t-shirt; (3) a Teletype ASR-33 terminal: a cream-grey typewriter-like machine on a stand with a roll of paper on top; (4) a modern silver laptop, open, its screen showing a tiny blue computer front panel with red lamps."
+      "prompt": "A 1970s tech-geek cast and props, in a warm 1970s retro palette (burnt orange, mustard, avocado green, chocolate brown, teal, cream): (1) a long-haired bearded hobbyist hacker in a brown-and-orange flannel shirt and bell-bottom jeans, a calculator in his shirt pocket; (2) a hobbyist hacker with a big afro, a mustard knitted vest and huge square glasses; (3) a skinny young student programmer with a mop of straight hair, enormous aviator-style glasses and a teal sweater; (4) a tall young programmer with a mustache, a tan corduroy jacket, holding a roll of yellow punched paper tape; (5) the Altair 8800 computer: a wide low box with a dark blue front panel, a row of small red lamps and a row of silver toggle switches; (6) a 1970s Teletype terminal on a stand with a paper roll; (7) a chunky 1970s transistor radio; (8) a coffee mug in orange; (9) a modern young hacker in an oversized hoodie with big headphones round the neck; (10) a modern silver laptop. Generic characters, not portraits of real people."
+    },
+    {
+      "name": "magazine",
+      "kind": "sprite",
+      "prompt": "A 1975 hobby-electronics magazine, seen flat from the front and slightly tilted: its glossy cover is a big photo of the Altair 8800 computer (dark blue front panel, red lamps, silver toggle switches) with a bold orange-and-yellow masthead stripe and a starburst corner. No readable words or letters anywhere, only abstract squiggles where text would be."
     },
     {
       "name": "altair",
       "kind": "sprite",
-      "prompt": "The Altair 8800 computer from the model sheet, seen straight from the front: a wide low box with a dark blue front panel, silver-grey sides and top, a row of small red LED lamps across the upper panel and a row of silver toggle switches along the lower panel. No screen, no keyboard, no text or logo."
+      "prompt": "The Altair 8800 computer from the model sheet, seen straight from the front: a wide low box with a dark blue front panel, silver-grey sides, a row of small red LED lamps across the upper panel and a row of silver toggle switches along the lower panel. No text or logo."
     },
     {
-      "name": "kid_flip",
+      "name": "hacker_flannel",
       "kind": "sprite",
-      "prompt": "The 1970s kid from the model sheet (big round glasses, brown bowl haircut, orange-and-mustard striped t-shirt), full body, standing in three-quarter view facing right, one arm reaching forward with a pointing finger as if flipping a switch, tongue out in concentration."
+      "prompt": "The long-haired bearded hobbyist hacker from the model sheet (brown-and-orange flannel shirt, bell-bottom jeans, calculator in the shirt pocket), full body, standing in three-quarter view facing right, one arm stretched out pointing excitedly, mouth open in delight."
     },
     {
-      "name": "kid_cheer",
+      "name": "hacker_afro",
       "kind": "sprite",
-      "prompt": "The 1970s kid from the model sheet (big round glasses, brown bowl haircut, orange-and-mustard striped t-shirt), full body, facing front, both arms up in a big cheer, mouth wide open, delighted."
+      "prompt": "The hobbyist hacker with the big afro from the model sheet (mustard knitted vest, huge square glasses), full body, standing facing left, both fists up in a cheer, grinning."
+    },
+    {
+      "name": "radio",
+      "kind": "sprite",
+      "prompt": "The chunky 1970s transistor radio from the model sheet: a leather-cased radio in brown and cream with a round speaker grille, a tuning dial and a telescopic antenna pulled up, a few musical-note doodles floating from the speaker."
+    },
+    {
+      "name": "coder_typing",
+      "kind": "sprite",
+      "prompt": "The skinny young student programmer from the model sheet (straight mop of hair, enormous aviator glasses, teal sweater), full body, standing facing right, leaning forward and typing furiously in the air with both hands, a pencil behind his ear, focused."
+    },
+    {
+      "name": "coder_tape",
+      "kind": "sprite",
+      "prompt": "The tall young programmer with a mustache from the model sheet (tan corduroy jacket), full body, standing facing right, proudly holding up a long curling strip of yellow punched paper tape in both hands."
     },
     {
       "name": "teletype",
       "kind": "sprite",
-      "prompt": "The Teletype ASR-33 terminal from the model sheet, front view: a chunky cream-grey teleprinter with a keyboard, on its own small stand, a roll of blank paper feeding up out of the top. No text on the paper."
+      "prompt": "The 1970s Teletype terminal from the model sheet, front view: a chunky cream-grey teleprinter with a keyboard on its own small stand, a roll of blank paper feeding up out of the top. No text on the paper."
+    },
+    {
+      "name": "mug",
+      "kind": "sprite",
+      "prompt": "The orange coffee mug from the model sheet, with a little curl of steam rising from it. Seen from the side."
+    },
+    {
+      "name": "genz",
+      "kind": "sprite",
+      "prompt": "The modern young hacker from the model sheet (oversized hoodie, big headphones round the neck, sneakers), full body, standing facing right, one hand pointing forward with a confident grin, the other giving a thumbs-up."
     },
     {
       "name": "laptop",
       "kind": "sprite",
-      "prompt": "A modern silver laptop, open, seen from the front, its screen showing a small cute picture of a dark blue computer front panel with red lamps and silver switches. No logo, no text."
+      "prompt": "A modern silver laptop, open, seen from the front, its screen showing a small picture of a dark blue computer front panel with red lamps and silver toggle switches. No logo, no text."
     },
     {
-      "name": "bg_room",
+      "name": "bg_retro",
       "kind": "bg",
-      "prompt": "A cosy 1970s hobby room: wallpaper with soft retro stripes in mustard, orange and brown along the top edge only, a plain cream wall in the middle, and a long wooden desk top running along the bottom edge."
+      "prompt": "A warm 1970s retro poster backdrop: a soft sunburst of wide rays in cream, mustard and burnt orange radiating from the bottom centre, faded and muted, with a band of 1970s rainbow stripes (brown, orange, mustard) along the very bottom edge. Calm, plain, no objects."
     },
     {
-      "name": "bg_paper",
+      "name": "bg_garage",
       "kind": "bg",
-      "prompt": "Blank cream cold-press watercolor paper with faint fibers, a soft warm vignette, a pale teal watercolor wash along the bottom edge and a few faint pencil sparkle doodles in the corners."
+      "prompt": "A suburban garage at night in 1975, used as a hobby club: dark wood-panelled walls, a pegboard with a few tools near the left edge, a hanging bare light bulb glow at the top, a few folding chairs at the far right edge, and a long wooden workbench along the bottom edge. The middle of the wall is plain and dark-warm."
     },
     {
-      "name": "year.en",
-      "kind": "text",
-      "size": "1536x1024",
-      "prompt": "A hand-lettered cartoon title that reads exactly \"1975\" (four digits, nothing else). Huge chunky playful digits, each digit in a different paper color, with tiny red LED lamps dotted along the top of the digits like a computer front panel. Spell it exactly."
+      "name": "bg_dorm",
+      "kind": "bg",
+      "prompt": "A college dorm room late at night in 1975: a window with a dark blue starry sky at the far left edge, a few 1970s posters as plain colour blocks near the right edge, an orange desk lamp glow, and a wooden desk top along the bottom edge. The middle of the wall is plain avocado green."
     },
     {
-      "name": "year.zh",
-      "kind": "text",
-      "size": "1536x1024",
-      "prompt": "一个手绘卡通标题，文字必须准确为「1975年」（四个阿拉伯数字加一个汉字“年”，不要其他文字）。粗壮可爱的字体，每个字是不同颜色的剪纸，数字顶上点缀几颗像电脑面板一样的小红灯。字必须写对。"
+      "name": "bg_now",
+      "kind": "bg",
+      "prompt": "A young person's desk at night today: a deep navy watercolor wall with soft glowing neon accents in pink and teal near the edges, a small potted plant and a desk lamp at the far right edge, and a light wooden desk top along the bottom edge. The middle is plain and calm."
     },
     {
-      "name": "browser.en",
+      "name": "build.en",
       "kind": "text",
-      "size": "1536x1024",
-      "prompt": "A hand-lettered cartoon title that reads exactly \"Now in your browser!\" (four words, nothing else), on two lines: \"Now in your\" above \"browser!\". Chunky playful letters, each word in a different paper color; the dot of the exclamation mark is a tiny red LED lamp. Spell it exactly."
+      "prompt": "A hand-lettered 1970s-style cartoon title that reads exactly \"Build it yourself!\" (three words, nothing else), on two lines: \"Build it\" above \"yourself!\". Chunky groovy rounded letters in burnt orange, mustard, avocado green and chocolate brown, with a little silver toggle switch drawn as the dot of the exclamation mark. Spell it exactly."
     },
     {
-      "name": "browser.zh",
+      "name": "build.zh",
       "kind": "text",
-      "size": "1536x1024",
-      "prompt": "一个手绘卡通标题，文字必须准确为「浏览器里就能玩！」（七个汉字加感叹号，不要其他文字），排成一行。粗壮可爱的字体，每个字是不同颜色的剪纸，感叹号的圆点是一颗小红灯。字必须写对。"
+      "prompt": "一个七十年代复古风格的手绘卡通标题，文字必须准确为「自己动手造电脑！」（七个汉字加感叹号，不要其他文字），排成一行。圆润粗壮的复古字体，颜色用焦橙、芥末黄、牛油果绿和巧克力棕，感叹号的圆点画成一个小小的银色拨动开关。字必须写对。"
+    },
+    {
+      "name": "worked.en",
+      "kind": "text",
+      "prompt": "A hand-lettered 1970s-style cartoon title that reads exactly \"It worked!\" (two words, nothing else), on one line. Chunky groovy rounded letters in burnt orange, mustard, avocado green and chocolate brown, with little red lamp sparkles around the exclamation mark. Spell it exactly."
+    },
+    {
+      "name": "worked.zh",
+      "kind": "text",
+      "prompt": "一个七十年代复古风格的手绘卡通标题，文字必须准确为「一次就跑通了！」（六个汉字加感叹号，不要其他文字），排成一行。圆润粗壮的复古字体，颜色用焦橙、芥末黄、牛油果绿和巧克力棕，感叹号周围点缀几颗闪亮的小红灯。字必须写对。"
+    },
+    {
+      "name": "turn.en",
+      "kind": "text",
+      "prompt": "A hand-lettered cartoon title that reads exactly \"Your turn.\" (two words and a full stop, nothing else), on one line. Chunky bold rounded letters mixing a 1970s groovy feel with modern neon: burnt orange, mustard and hot pink with a teal glow outline; the full stop is a small red lamp. Spell it exactly."
+    },
+    {
+      "name": "turn.zh",
+      "kind": "text",
+      "prompt": "一个手绘卡通标题，文字必须准确为「轮到你了！」（四个汉字加感叹号，不要其他文字），排成一行。圆润粗壮的字体，把七十年代复古感和现代霓虹感混在一起：焦橙、芥末黄和亮粉色，外面一圈青色辉光；感叹号的圆点是一颗小红灯。字必须写对。"
     }
   ]
 }

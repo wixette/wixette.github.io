@@ -565,17 +565,18 @@ export class Kit {
   }
 
   /**
-   * A number that counts: shows Math.round(value), padded.
+   * A number that counts: shows Math.round(value), padded, or as format() writes it
+   * ("WEEK 3", "第 3 周").
    * @param {Scene} scene
-   * @param {{ x: number; y: number; size?: number; color?: string; pad?: number; font?: string; value?: number; align?: 'left' | 'center' }} o
+   * @param {{ x: number; y: number; size?: number; color?: string; pad?: number; font?: string; value?: number; align?: 'left' | 'center'; format?: (n: string) => string }} o
    */
-  number(scene, { x, y, size = 80, color = C.ink, pad = 0, font = FONT.mono, value = 0, align = 'center' }) {
+  number(scene, { x, y, size = 80, color = C.ink, pad = 0, font = FONT.mono, value = 0, align = 'center', format = (n) => n }) {
     const box = this.el(scene.cam.el, 'div', 'k-number', { left: `${x}px`, top: `${y}px`, fontSize: `${size}px`, color, fontFamily: font });
     if (align === 'center') box.classList.add('center');
     const actor = new El(box, { value, opacity: 0 });
     let last = '';
     actor.extra = (st) => {
-      const out = String(Math.round(st.value)).padStart(pad, '0');
+      const out = format(String(Math.round(st.value)).padStart(pad, '0'));
       if (out !== last) box.textContent = last = out;
     };
     return this.actor(actor);
