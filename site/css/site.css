@@ -73,6 +73,19 @@ a {
   outline-offset: 3px;
 }
 
+/* The page is starting in Chinese (index.html): the English texts in the HTML stay hidden
+   until main.js writes the Chinese ones, and show after 3 s whatever happens. */
+.i18n-pending [data-i18n] {
+  visibility: hidden;
+  animation: i18n-show 0s 3s forwards;
+}
+
+@keyframes i18n-show {
+  to {
+    visibility: visible;
+  }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -466,12 +479,13 @@ main {
   transition: opacity 300ms var(--ease);
 }
 
-/* playing: the title shrinks to a label at the bottom left, as on a Metro live tile */
-.tile.is-playing .tile-info {
+/* active (hovered, focused or chosen by the focus line; playing unless motion is reduced): the
+   title shrinks to a label at the bottom left, as on a Metro live tile, and the buttons show */
+.tile.is-active .tile-info {
   transform: scale(0.52);
 }
 
-.tile.is-playing .tile-tagline,
+.tile.is-active .tile-tagline,
 .tile:focus-within .tile-tagline {
   opacity: 0;
 }
@@ -497,18 +511,16 @@ main {
   pointer-events: none;
 }
 
-.tile.is-playing .tile-chips,
+.tile.is-active .tile-chips,
 .tile:focus-within .tile-chips {
   opacity: 1;
   transform: none;
 }
 
-.tile.is-playing .tile-chips .chip-try,
+.tile.is-active .tile-chips .chip-try,
 .tile:focus-within .tile-chips .chip-try {
   pointer-events: auto;
 }
-
-
 
 /* stickers: white paper, black border, a hard shadow in the accent */
 .chip {
@@ -582,11 +594,11 @@ main {
   padding-bottom: calc(clamp(14px, 5.5cqmin, 26px) + 42px);
 }
 
-.touch .tile.is-playing .tile-info {
+.touch .tile.is-active .tile-info {
   transform: none;
 }
 
-.touch .tile.is-playing .tile-tagline,
+.touch .tile.is-active .tile-tagline,
 .touch .tile:focus-within .tile-tagline {
   opacity: 1;
 }

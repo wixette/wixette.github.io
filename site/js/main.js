@@ -25,6 +25,7 @@ const applyTexts = () => {
 
 initLang();
 applyTexts();
+document.documentElement.classList.remove('i18n-pending');
 onLang(applyTexts);
 
 for (const b of document.querySelectorAll('.lang button')) {

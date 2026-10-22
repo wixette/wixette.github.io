@@ -1,6 +1,6 @@
 // @ts-check
 // The page's own strings. Showcases keep theirs in showcases/index.js and their compositions.
-// Both languages must have every key (tests/strings.test.js).
+// Both languages must have every key (tests/i18n.test.js).
 
 export const STRINGS = {
   en: {

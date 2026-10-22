@@ -27,12 +27,13 @@ site/                         the published site, served as it is (D1)
   showcases/<id>/composition.js   one project's animation
   showcases/<id>/assets.js    generated: its images, with their sizes
   showcases/<id>/assets/      generated: its images, WebP
-  images/                     the logo, also the favicon and the dialog's picture
+  images/                     the logo, also the favicon and the dialog's picture; the
+                              touch icon and the link preview (pnpm social)
   vendor/fonts/               fonts copied from npm (pnpm vendor), with their licences
 art/<id>/art.json             the prompts for a showcase's images (not published)
 art/style.json                the prompt prefixes shared by every showcase
 dev/                          review pages for animations (not published)
-tools/                        serve, stamp, vendor, layout preview, art pipeline
+tools/                        serve, stamp, vendor, layout preview, art pipeline, social
 tests/                        node --test
 docs/                         this, the requirements, and the showcase playbook
 ```
@@ -124,11 +125,17 @@ the dialog uses a Material 3 dark tonal surface. On top of that:
 |---|---|
 | Static | The animation's poster frame in greyscale, tinted with the accent; a dark scrim at the bottom; the title large, the tagline under it; index (`01`) and tags (`8080 · BASIC`) in mono at the top. |
 | Hover / focus / focused or tapped (touch) | The tint fades out and the animation plays in colour. With a mouse, the title shrinks to a small label at the bottom left (as on a Metro live tile), the tagline and tags fade and the chips appear. On touch screens the title and tagline stay as they are, above the always-shown chips. A 4 px progress bar in the accent runs along the bottom edge. |
-| Press | Metro's tilt: the tile leans away from the pointer by up to 6° and scales to 0.98, then springs back. |
+| Press | Metro's tilt: the tile leans away from the pointer by up to 3.5° (less on large tiles) and scales to 0.975, then springs back. Primary button only. |
 | Focus | A 3 px acid-lime ring outside the tile. |
 
 Motion follows Material 3's emphasized easing (`cubic-bezier(0.2, 0, 0, 1)`) for state
-changes, 300–500 ms. With *reduce motion*, state changes are instant and nothing plays.
+changes, 300–500 ms. With *reduce motion*, state changes are instant and nothing plays; a
+hovered or focused tile still shrinks its title and shows its chips, so Try it stays one
+click away.
+
+Tiles, their chips and the top bar are controls, not text: they take no text selection, no
+drag and no long-press menu. The About dialog's name, handle and bio stay selectable, and
+the dialog closes only on a click that both starts and ends on its backdrop.
 
 ## 5. The live-tile layout
 
@@ -176,8 +183,8 @@ Then `chooseLayout` compares the column counts the width allows (2 to 8, cells b
 The cheapest overall wins. For 5 to 20 tiles this takes well under
 a millisecond, so it runs in the browser on every resize.
 
-If a set of tiles ever has no perfect packing at some width, the solver reports it and the
-grid falls back to the best packing with a ragged last row. `tests/layout.test.js` checks the
+If a set of tiles ever has no perfect packing at some width, `js/grid.js` logs a warning and
+the grid falls back to the best packing with a ragged last row. `tests/layout.test.js` checks the
 current showcases at every width from 320 to 2560 px in 10 px steps, so that never ships;
 `pnpm layout` prints the grids as text for review.
 
@@ -232,11 +239,11 @@ timeline. Compositions call it rather than placing DOM by hand:
 | Group | Calls |
 |---|---|
 | Scenes | `scene(bg)`, `sheetIn` (a paper sheet with a torn edge slides over), `flash`, `pushIn` (slow camera zoom), `shake` |
-| Cutouts | `sprite` (anchored at its feet or centre), `pop`, `dropIn`, `slideIn`, `hop`, `moveTo`, `spin`, `hide` |
+| Cutouts | `sprite` (anchored at its feet or centre), `flipTo`, `pop`, `dropIn`, `slideIn`, `hop`, `moveTo`, `turn`, `zoom`, `show`, `hide`, `fadeIn`, `fadeOut`, `follow` |
 | Idle life | `sway`, `bob`, `boil` (on an inner wrapper, so they never fight the entrances) |
 | Text art | `textArt` (a drawn text image for the current language, fitted into a box), `wipe` (reveals it left to right) |
-| Code text | `caption` (brush letters, written one by one), `tag` (a paper tag with washi tape), `type` (monospace typewriter with a cursor), `tiles` (ransom-note letters) |
-| Pencil | `stroke` + `draw` (SVG paths that draw themselves), `underline`, `circle`, `check`, `doodle` (sparkle, ticks, `?`, `!`) |
+| Code text | `caption` (brush letters) and `typer` (monospace typewriter with a cursor), both revealed by `write`; `number` + `count`; `tag` (a paper tag with washi tape), `tiles` + `slap` (ransom-note letters) |
+| Pencil | `stroke` + `draw` / `undraw` (SVG paths that draw themselves), `underline`, `ring`, `check`, `doodle` (sparkle, ticks, `?`, `!`) |
 | Particles | `confetti` |
 
 ### 6.4 Compositions
@@ -316,7 +323,12 @@ end, and reports progress for the progress bar. `js/tiles.js` decides who plays:
   moves on to another tile. The tile is not a link there: its GitHub and Try it buttons are.
   (The first version played the tile most in view, but at the end of the page several tiles
   are fully in view and scrolling can no longer change which one wins.)
-- **Reduce motion**: nobody.
+- **Reduce motion**: nobody. The tile that would play is still active: its title shrinks
+  and its chips show.
+- A tile tapped to play stops when it scrolls out of view, and the focus line takes over.
+- A language switch builds every built tile's stage again, hidden, and swaps it in once its
+  images are ready; only the latest build may swap in, so quick switches never leave a tile
+  blank. A build that fails is logged and tried again the next time the tile is needed.
 
 A tile's stage is built when the tile comes within 400 px of the viewport, its images are
 decoded, then it seeks to the poster time. Stopped stages cost nothing.
@@ -332,7 +344,7 @@ Project names in Chinese: Altair 8800 模拟器, 莱布尼茨步进计算器, �
 
 ## 8. Accessibility
 
-- Each tile is an `<article>` with one link stretched over it (the GitHub repository), named
+- Each tile is an `<li>` of the grid's list with one link stretched over it (the GitHub repository), named
   "<title> on GitHub"; the Try it chip is a separate link above it. No nested links.
 - The animation stage is `aria-hidden`; the tile's title and tagline carry the meaning.
 - The About dialog is a native `<dialog>` (focus trap, Escape closes, focus returns).

@@ -4,12 +4,43 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>wixette · open source projects</title>
-    <meta name="description" content="Live tiles of wixette's open source projects." />
+    <meta name="description" content="Live tiles of wixette&#39;s open source projects: an Altair 8800 simulator, Leibniz&#39;s stepped reckoner in 3D, multi-voice audiobooks, a language for cats and more." />
     <meta name="theme-color" content="#000000" />
     <meta name="color-scheme" content="dark" />
+    <link rel="canonical" href="https://wixette.github.io/" />
     <link rel="icon" href="images/favicon.svg?v=12d4cbe1ce" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=eba893756d" />
+    <!-- Link previews (made by pnpm social: tools/social.mjs). Crawlers read only these
+         English tags. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="wixette" />
+    <meta property="og:title" content="wixette · open source projects" />
+    <meta property="og:description" content="Live tiles of wixette&#39;s open source projects: an Altair 8800 simulator, Leibniz&#39;s stepped reckoner in 3D, multi-voice audiobooks, a language for cats and more." />
+    <meta property="og:url" content="https://wixette.github.io/" />
+    <meta property="og:image" content="https://wixette.github.io/images/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="The page: five live tiles of wixette's open source projects under the headline Things I build in the open." />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Before the first paint: when the page will start in Chinese (?lang=, then the saved
+         choice, then the browser's languages, as detect() in js/i18n.js decides), the English
+         texts stay hidden until main.js writes the Chinese ones (site.css, .i18n-pending). -->
+    <script>
+      (() => {
+        const zh = (t) => /^zh([-_]|$)/i.test(t ?? '');
+        const ours = (t) => zh(t) || /^en(-|$)/i.test(t ?? '');
+        let saved = null;
+        try {
+          saved = localStorage.getItem('wixette.lang');
+        } catch {}
+        const tags = [new URLSearchParams(location.search).get('lang'), saved, ...(navigator.languages ?? [navigator.language])];
+        if (zh(tags.find(ours))) document.documentElement.classList.add('i18n-pending');
+      })();
+    </script>
     <link rel="stylesheet" href="css/fonts.css?v=4259c78eef" />
-    <link rel="stylesheet" href="css/site.css?v=0dcd840951" />
+    <link rel="stylesheet" href="css/site.css?v=caefe19eb6" />
     <link rel="stylesheet" href="css/stage.css?v=2885c54ff7" />
     <!-- Every local URL on this page carries its file's content hash (?v=), and so does every
          module the scripts import, through this map. pnpm stamp (tools/stamp.mjs) writes
@@ -19,7 +50,7 @@
       "imports": {
         "./js/about.js": "./js/about.js?v=e995554ed6",
         "./js/anim/ease.js": "./js/anim/ease.js?v=5a95c3afe1",
-        "./js/anim/kit.js": "./js/anim/kit.js?v=ebaed59357",
+        "./js/anim/kit.js": "./js/anim/kit.js?v=5a97df9a2b",
         "./js/anim/player.js": "./js/anim/player.js?v=e9c75ed98a",
         "./js/anim/rng.js": "./js/anim/rng.js?v=d70bf9c6ae",
         "./js/anim/stage.js": "./js/anim/stage.js?v=2ac4f1427c",
@@ -27,15 +58,15 @@
         "./js/asset-url.js": "./js/asset-url.js?v=dc019e9645",
         "./js/focus.js": "./js/focus.js?v=13677ddece",
         "./js/grid-width.js": "./js/grid-width.js?v=3c45214bf3",
-        "./js/grid.js": "./js/grid.js?v=a452315362",
-        "./js/hashes.js": "./js/hashes.js?v=27aa58cc35",
-        "./js/i18n.js": "./js/i18n.js?v=a37e774482",
+        "./js/grid.js": "./js/grid.js?v=94fecd0a71",
+        "./js/hashes.js": "./js/hashes.js?v=e19bd861ab",
+        "./js/i18n.js": "./js/i18n.js?v=c42a48984a",
         "./js/icons.js": "./js/icons.js?v=142445bcec",
         "./js/layout.js": "./js/layout.js?v=763a89a89b",
-        "./js/main.js": "./js/main.js?v=b271e86ab6",
+        "./js/main.js": "./js/main.js?v=6b7f7448c9",
         "./js/profile.js": "./js/profile.js?v=d8895488ee",
-        "./js/strings.js": "./js/strings.js?v=8886651337",
-        "./js/tiles.js": "./js/tiles.js?v=2b08e624c3",
+        "./js/strings.js": "./js/strings.js?v=55431c9637",
+        "./js/tiles.js": "./js/tiles.js?v=e7df84d8fb",
         "./showcases/8800-simulator/assets.js": "./showcases/8800-simulator/assets.js?v=68e060e30a",
         "./showcases/8800-simulator/composition.js": "./showcases/8800-simulator/composition.js?v=bb7cd89c72",
         "./showcases/huashuo/assets.js": "./showcases/huashuo/assets.js?v=294002dad4",
@@ -50,7 +81,7 @@
       }
     }
     </script>
-    <script type="module" src="js/main.js?v=b271e86ab6"></script>
+    <script type="module" src="js/main.js?v=6b7f7448c9"></script>
   </head>
   <body>
     <header class="topbar">

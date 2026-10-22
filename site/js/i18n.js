@@ -8,6 +8,7 @@ import { STRINGS } from './strings.js';
 
 /** @type {Lang[]} */
 export const LANGS = ['en', 'zh'];
+// index.html's first script repeats this key and detect() (tests/i18n.test.js keeps them in step).
 const STORAGE_KEY = 'wixette.lang';
 
 /**

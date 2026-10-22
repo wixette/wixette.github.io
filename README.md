@@ -24,6 +24,7 @@ pnpm typecheck    # the JSDoc types, strictly (tsc --checkJs); nothing is compil
 pnpm test         # solver, timeline, languages, showcases, stamps
 pnpm layout       # the live-tile grid at each screen width, as text
 pnpm stamp        # after changing any file under site/: the content-hash URLs
+pnpm social       # after changing the logo or the page's look: touch icon and link preview
 ```
 
 ## Documents

@@ -18,7 +18,7 @@ for (const tile of tiles) process.stdout.write(`${tile.id[0]} = ${tile.id}${tile
 for (const viewport of widths) {
   const width = gridWidth(viewport);
   const t0 = performance.now();
-  const layout = chooseLayout(tiles, width, { fitHeight: heightOf(viewport) - 64 - 20 });
+  const layout = chooseLayout(tiles, width, { fitHeight: heightOf(viewport) - 64 - 20 }); // the top bar (site.css) and two gaps
   const ms = performance.now() - t0;
   process.stdout.write(
     `\nviewport ${viewport}×${Math.round(heightOf(viewport))}px  grid ${width}px  ${layout.columns}×${layout.rows}  cell ${Math.round(layout.cell)}px` +

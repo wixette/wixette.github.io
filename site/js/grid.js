@@ -21,12 +21,15 @@ export function liveGrid(grid, specs, tileOf, onLayout) {
     const gap = parseFloat(getComputedStyle(grid).columnGap) || 10;
     const t0 = performance.now();
     // The whole grid should fit the viewport under the top bar, when there is a choice.
-    const fitHeight = innerHeight - 64 - 2 * gap;
+    const bar = document.querySelector('.topbar')?.getBoundingClientRect().height ?? 0;
+    const fitHeight = innerHeight - bar - 2 * gap;
     const layout = chooseLayout(specs, width, { gap, fitHeight });
     const ms = performance.now() - t0;
     const next = `${layout.columns}|${layout.placements.map((p) => `${p.id}:${p.shape}@${p.row},${p.col}`).join(';')}`;
     if (next !== key) {
       key = next;
+      // tests/layout.test.js keeps this from shipping; a new tile set may still hit it.
+      if (!layout.perfect) console.warn(`no perfect packing at ${width}px: the last row is ragged`);
       grid.style.setProperty('--cols', String(layout.columns));
       for (const p of layout.placements) {
         const el = tileOf(p.id);

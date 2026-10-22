@@ -82,6 +82,10 @@ export class Tile {
     /** @type {Promise<void> | null} */
     this.building = null;
     this.builtLang = '';
+    /** Counts builds: only the latest one may install its stage. */
+    this.gen = 0;
+    /** @type {HTMLElement | null} the installed stage's holder */
+    this.holder = null;
     this.wanted = false;
     this.resumeAt = 0;
     this.texts();
@@ -139,38 +143,55 @@ export class Tile {
     for (const type of ['pointerup', 'pointerleave', 'pointercancel']) this.el.addEventListener(type, release);
   }
 
-  /** Builds the stage in the current language, once its images are ready. */
+  /**
+   * Builds the stage in the current language, once its images are ready. A failed build is
+   * logged and forgotten, so the next call tries again.
+   */
   prepare() {
     if (this.building && this.builtLang === lang()) return this.building;
     const l = lang();
     this.builtLang = l;
+    const gen = ++this.gen;
     const build = (async () => {
-      this.comp ??= (await this.showcase.composition()).default;
-      const comp = this.comp;
-      // Built off-page, then swapped in, so the old one shows until the new one is ready.
+      // Built hidden, then swapped in, so the old one shows until the new one is ready.
       const holder = document.createElement('div');
       holder.className = 'tile-stage-inner';
-      Object.assign(holder.style, { position: 'absolute', inset: '0' });
-      this.view.append(holder);
-      const stage = new Stage(holder);
-      const kit = new Kit(stage.el, comp, l);
-      comp.build(kit);
-      await kit.ready();
-      if (this.builtLang !== l) {
-        stage.destroy();
+      Object.assign(holder.style, { position: 'absolute', inset: '0', visibility: 'hidden' });
+      /** @type {Stage | null} */
+      let stage = null;
+      try {
+        this.comp ??= (await this.showcase.composition()).default;
+        const comp = this.comp;
+        this.view.append(holder);
+        stage = new Stage(holder);
+        const kit = new Kit(stage.el, comp, l);
+        comp.build(kit);
+        await kit.ready();
+        // A later build (another language switch) has taken over.
+        if (gen !== this.gen) {
+          stage.destroy();
+          holder.remove();
+          return;
+        }
+        const was = this.player;
+        // A stopped player has gone back to its poster; resumeAt keeps where it stopped.
+        const time = was?.playing ? was.time : this.resumeAt;
+        was?.pause();
+        this.stage?.destroy();
+        this.holder?.remove();
+        this.stage = stage;
+        this.holder = holder;
+        holder.style.visibility = '';
+        this.player = new Player(kit.tl, comp.duration, (_t, p) => this.progress.style.setProperty('--progress', p.toFixed(4)));
+        this.player.seek(this.wanted ? time : comp.poster);
+        this.view.classList.add('ready');
+        if (this.wanted) this.player.play();
+      } catch (err) {
+        stage?.destroy();
         holder.remove();
-        return;
+        if (gen === this.gen) this.builtLang = '';
+        console.error(`${this.showcase.id}: the animation could not be built`, err);
       }
-      const was = this.player;
-      const time = was ? was.time : this.resumeAt;
-      was?.pause();
-      this.stage?.destroy();
-      this.view.querySelectorAll('.tile-stage-inner').forEach((h) => h !== holder && h.remove());
-      this.stage = stage;
-      this.player = new Player(kit.tl, comp.duration, (_t, p) => this.progress.style.setProperty('--progress', p.toFixed(4)));
-      this.player.seek(this.wanted ? time : comp.poster);
-      this.view.classList.add('ready');
-      if (this.wanted) this.player.play();
     })();
     this.building = build;
     return build;
@@ -226,8 +247,10 @@ export function createTiles(list, showcases) {
   /** @param {Tile | null} tile */
   const activate = (tile) => {
     if (tile === active) return;
+    active?.el.classList.remove('is-active');
     active?.stop();
     active = tile;
+    tile?.el.classList.add('is-active');
     tile?.play();
   };
 
@@ -271,7 +294,17 @@ export function createTiles(list, showcases) {
   addEventListener('scroll', schedule, { passive: true });
   addEventListener('resize', schedule);
   new ResizeObserver(schedule).observe(list);
+  // A tile tapped to play stops once scrolled out of view.
+  const inView = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting || hoverDevice.matches || active?.el !== e.target) continue;
+      activate(null);
+      focused = null;
+      schedule();
+    }
+  });
   for (const tile of tiles) {
+    inView.observe(tile.el);
     tile.el.addEventListener('click', (e) => {
       if (hoverDevice.matches || (e.target instanceof Element && e.target.closest('a'))) return;
       if (active === tile && tile.player?.playing) activate(null);
@@ -287,7 +320,8 @@ export function createTiles(list, showcases) {
   };
   touchClass();
   hoverDevice.addEventListener('change', touchClass);
-  reduceMotion.addEventListener('change', () => reduceMotion.matches && activate(null));
+  // The active tile stays active (its buttons showing); only its animation follows the setting.
+  reduceMotion.addEventListener('change', () => (reduceMotion.matches ? active?.stop() : active?.play()));
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) active?.player?.pause();
     else if (active?.wanted) active.player?.play();

@@ -23,6 +23,7 @@
     "vendor": "node tools/vendor.mjs",
     "layout": "node tools/layout-preview.mjs",
     "art": "node tools/art.mjs",
+    "social": "node tools/social.mjs",
     "version": "node tools/stamp.mjs"
   },
   "devDependencies": {

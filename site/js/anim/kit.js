@@ -43,6 +43,8 @@ export const FONT = {
 };
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
+/** Mask ids are unique across every kit on the page, old stages and new alike. */
+let maskCount = 0;
 
 /**
  * An actor on the stage: one element and the properties the timeline moves.
@@ -666,7 +668,7 @@ export class Kit {
     /** @type {SVGPathElement} */
     let reveal = path;
     if (dash) {
-      const id = `m${(this.seed += 101)}`;
+      const id = `k-mask-${++maskCount}`;
       const defs = document.createElementNS(SVG_NS, 'defs');
       const mask = document.createElementNS(SVG_NS, 'mask');
       mask.id = id;

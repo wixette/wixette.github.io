@@ -18,7 +18,13 @@ const TYPES = {
 };
 
 createServer((req, res) => {
-  const path = decodeURIComponent(new URL(req.url ?? '/', 'http://x').pathname);
+  let path;
+  try {
+    path = decodeURIComponent(new URL(req.url ?? '/', 'http://x').pathname);
+  } catch {
+    res.writeHead(400, { 'content-type': 'text/plain' }).end('bad request');
+    return;
+  }
   if (path === '/') {
     res.writeHead(302, { location: '/site/' }).end();
     return;

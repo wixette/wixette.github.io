@@ -1,6 +1,8 @@
 // @ts-check
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
+import { runInNewContext } from 'node:vm';
 import { detect, fill, normalise } from '../site/js/i18n.js';
 import { STRINGS } from '../site/js/strings.js';
 import { PROFILE } from '../site/js/profile.js';
@@ -20,6 +22,34 @@ test('the URL wins, then the saved choice, then the browser, then English', () =
   assert.equal(detect({ saved: null, browser: ['fr-FR', 'zh-CN', 'en'] }), 'zh');
   assert.equal(detect({ browser: ['de', 'fr'] }), 'en');
   assert.equal(detect({}), 'en');
+});
+
+test("index.html's pre-paint script expects Chinese exactly when detect() picks it", () => {
+  const html = readFileSync(new URL('../site/index.html', import.meta.url), 'utf8');
+  const script = html.match(/<script>([\s\S]*?)<\/script>/)?.[1];
+  assert.ok(script, 'the inline script');
+  const cases = [
+    { query: 'zh', saved: 'en', browser: ['en'] },
+    { query: 'en', saved: 'zh', browser: ['zh-CN'] },
+    { query: 'xx', saved: 'zh', browser: ['en'] },
+    { saved: 'zh_TW', browser: ['en'] },
+    { saved: null, browser: ['fr-FR', 'zh-CN', 'en'] },
+    { saved: null, browser: ['fr-FR', 'en-GB', 'zh-CN'] },
+    { browser: ['ZH-hans'] },
+    { browser: ['zhx', 'de'] },
+    { browser: [] },
+  ];
+  for (const c of cases) {
+    const classes = new Set();
+    runInNewContext(script, {
+      location: { search: c.query ? `?lang=${c.query}` : '' },
+      localStorage: { getItem: (/** @type {string} */ k) => (k === 'wixette.lang' ? (c.saved ?? null) : null) },
+      navigator: { languages: c.browser, language: c.browser[0] },
+      document: { documentElement: { classList: { add: (/** @type {string} */ n) => classes.add(n) } } },
+      URLSearchParams,
+    });
+    assert.equal(classes.has('i18n-pending'), detect(c) === 'zh', JSON.stringify(c));
+  }
 });
 
 test('fill replaces placeholders and leaves unknown ones', () => {
