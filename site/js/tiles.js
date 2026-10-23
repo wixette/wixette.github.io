@@ -145,7 +145,7 @@ export class Tile {
 
   /**
    * Builds the stage in the current language, once its images are ready. A failed build is
-   * logged and forgotten, so the next call tries again.
+   * logged and forgotten, so the next call tries again; a playing tile tries again by itself.
    */
   prepare() {
     if (this.building && this.builtLang === lang()) return this.building;
@@ -189,8 +189,11 @@ export class Tile {
       } catch (err) {
         stage?.destroy();
         holder.remove();
-        if (gen === this.gen) this.builtLang = '';
         console.error(`${this.showcase.id}: the animation could not be built`, err);
+        if (gen !== this.gen) return;
+        this.builtLang = '';
+        // Still wanted (on a phone, the tile under the focus line stays wanted): try again.
+        if (this.wanted) setTimeout(() => this.wanted && this.play(), 5000);
       }
     })();
     this.building = build;

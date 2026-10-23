@@ -8,6 +8,7 @@
 // stays inside x = 500…1500.
 
 import { stampUrl } from '../asset-url.js';
+import { loadImage } from './load-image.js';
 import { hash01, rng } from './rng.js';
 import { STAGE_H, STAGE_W } from './stage.js';
 import { Timeline } from './timeline.js';
@@ -178,7 +179,7 @@ export class Kit {
   }
 
   /**
-   * An <img> of a composition's image, counted until decoded.
+   * An <img> of a composition's image, which ready() waits for.
    * @param {Element} parent
    * @param {string} name
    */
@@ -186,12 +187,14 @@ export class Kit {
     const img = this.el(parent, 'img');
     img.alt = '';
     img.draggable = false;
-    img.src = this.url(name);
-    this.loading.push(img.decode().catch(() => undefined));
+    this.loading.push(loadImage(img, this.url(name)));
     return img;
   }
 
-  /** Resolves once every image is decoded and the fonts are loaded. */
+  /**
+   * Resolves once every image has loaded and the fonts are in (a missing font falls back);
+   * rejects if an image could not be loaded, so the stage never shows a broken one.
+   */
   ready() {
     const fonts = ['40px "Caveat Brush"', '40px "Patrick Hand"', '40px "JetBrains Mono Variable"', '800 40px "Bricolage Grotesque Variable"'];
     return Promise.all([...this.loading, ...fonts.map((f) => document.fonts.load(f).catch(() => undefined))]);
