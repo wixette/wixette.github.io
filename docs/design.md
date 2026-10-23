@@ -330,10 +330,16 @@ end, and reports progress for the progress bar. `js/tiles.js` decides who plays:
 - A tile tapped to play stops when it scrolls out of view, and the focus line takes over.
 - A language switch builds every built tile's stage again, hidden, and swaps it in once its
   images are ready; only the latest build may swap in, so quick switches never leave a tile
-  blank. A build that fails is logged and tried again the next time the tile is needed.
+  blank. A build that fails is logged and tried again the next time the tile is needed,
+  or after 5 s while the tile is still wanted.
 
 A tile's stage is built when the tile comes within 400 px of the viewport, its images are
-decoded, then it seeks to the poster time. Stopped stages cost nothing.
+loaded and decoded, then it seeks to the poster time. Stopped stages cost nothing.
+
+A stage never shows until every one of its images has loaded (`js/anim/load-image.js`): an
+image whose request fails, as on a patchy mobile connection, is fetched again at a new URL
+up to three times, and one that still fails fails the build, so the tile stays at rest
+rather than playing with broken images.
 
 ## 7. Languages
 
