@@ -1,0 +1,89 @@
+{
+  "items": [
+    {
+      "name": "ref",
+      "kind": "ref",
+      "prompt": "(1) a young draw boy, a French silk-weaving apprentice around 1800: a skinny boy with messy brown hair, a tomato-red cloth cap, a mustard waistcoat over a white shirt with rolled-up sleeves, brown knee breeches; (2) Joseph-Marie Jacquard as a cute storybook character: a kind round face, grey hair tied back in a short ponytail, a long dark teal coat, a white cravat; (3) Ada Lovelace as a cute storybook character: dark hair in a neat centre-parted bun with ringlets over the ears, a deep ultramarine 1840s gown with a lace collar; (4) a big wooden silk hand loom seen from the front: a tall oak frame, many thin vertical red silk warp threads, a bench at the front; (5) the Jacquard head: a tall oak box that sits on top of the loom, with a square wooden card cylinder at its side and a long chain of buff punched cards laced together hanging from it in a loop; (6) one buff cardboard punched card on its own: a long rectangle with rows of round punched holes; (7) Charles Babbage's Analytical Engine: tall brass columns of stacked gear wheels in a dark iron frame; (8) a modern silver laptop. Cartoon characters, friendly, not realistic portraits."
+    },
+    {
+      "name": "drawboy_pull",
+      "kind": "sprite",
+      "prompt": "The draw boy from the model sheet (tomato-red cap, mustard waistcoat, rolled-up sleeves, brown breeches), full body, standing in three-quarter view facing right, leaning far back and hauling down hard with both hands on a thick bundle of thin cords that runs straight up out of the top of the picture, straining, cheeks puffed, sweat drops flying. Only the cords, nothing else."
+    },
+    {
+      "name": "drawboy_cheer",
+      "kind": "sprite",
+      "prompt": "The draw boy from the model sheet (tomato-red cap, mustard waistcoat, rolled-up sleeves, brown breeches), full body, facing front, jumping for joy with both arms in the air and a huge grin, free at last. Nothing else in the picture."
+    },
+    {
+      "name": "jacquard",
+      "kind": "sprite",
+      "prompt": "Joseph-Marie Jacquard from the model sheet (grey hair tied back, long dark teal coat, white cravat), full body, standing facing slightly left, proudly holding up in both hands a short chain of five buff punched cards laced together, which hangs down in front of him like a paper garland, a proud smile."
+    },
+    {
+      "name": "loom",
+      "kind": "sprite",
+      "prompt": "The big wooden silk hand loom from the model sheet, seen straight from the front, alone: a tall oak frame with a flat top beam, many thin vertical red silk warp threads running down the middle, a strip of woven cream-and-red cloth at the bottom, a wooden bench at the front. Nothing on top of the frame. No people."
+    },
+    {
+      "name": "head",
+      "kind": "sprite",
+      "prompt": "The Jacquard head from the model sheet, alone, seen straight from the front: a tall oak box with a square wooden card cylinder on its right side, and a long chain of buff punched cards laced together, hanging from the cylinder in a big loop. No loom under it, no people."
+    },
+    {
+      "name": "card",
+      "kind": "sprite",
+      "prompt": "One buff cardboard punched card from the model sheet, alone, seen flat from the front and slightly tilted: a long rectangle with two lace holes at each end and several rows of round punched holes in a pattern, with the cardboard's thickness showing at the edges. No text."
+    },
+    {
+      "name": "ada",
+      "kind": "sprite",
+      "prompt": "Ada Lovelace from the model sheet (dark hair in a centre-parted bun with ringlets, deep ultramarine 1840s gown with a lace collar), full body, standing facing right, holding up one buff punched card in one hand and pointing to it with the other, a bright clever smile."
+    },
+    {
+      "name": "engine",
+      "kind": "sprite",
+      "prompt": "Charles Babbage's Analytical Engine from the model sheet, alone, seen from the front: several tall brass columns of stacked toothed gear wheels in a dark iron frame on a low base, with a chain of buff punched cards hanging from one side. No numbers, no text, no people."
+    },
+    {
+      "name": "ibmcard",
+      "kind": "sprite",
+      "prompt": "A 1960s computer punched card, alone, seen flat from the front and slightly tilted: a thin pale cream rectangle with one corner cut off at the top left, covered in neat columns of tiny printed digits and a scattering of small rectangular punched holes. The digits are only tiny dots and dashes, nothing readable."
+    },
+    {
+      "name": "laptop",
+      "kind": "sprite",
+      "prompt": "The modern silver laptop from the model sheet, open, seen from the front, its dark screen showing a browser window with a little drawing of a wooden loom and a strip of punched cards. No logo, no readable text."
+    },
+    {
+      "name": "bg_workshop",
+      "kind": "bg",
+      "prompt": "A silk weaver's workshop in Lyon around 1800: a tall pale plaster wall, a tall window with soft daylight and blue sky at the far left edge, dark oak ceiling beams along the very top, spools of red and mustard silk thread on a shelf at the far right edge, and worn wooden floorboards along the bottom edge. The middle of the wall is plain and calm."
+    },
+    {
+      "name": "bg_paper",
+      "kind": "bg",
+      "prompt": "Blank cream cold-press watercolor paper with faint fibers, a soft warm vignette, a pale teal watercolor wash along the bottom edge and a few faint woven-thread crosshatch doodles in the corners."
+    },
+    {
+      "name": "holes.en",
+      "kind": "text",
+      "prompt": "A hand-lettered cartoon title that reads exactly \"Holes, not hands!\" (three words, nothing else), on two lines: \"Holes,\" above \"not hands!\". Chunky playful letters, each in a different paper color; every letter O is a round punched hole in a little buff card, and a red silk thread weaves in and out under the words. Spell it exactly."
+    },
+    {
+      "name": "holes.zh",
+      "kind": "text",
+      "prompt": "一个手绘卡通标题，文字必须准确为「让孔来拉线！」（五个汉字加感叹号，不要其他文字），排成一行。粗壮可爱的字体，每个字是不同颜色的剪纸；“孔”字旁边画一张打了圆孔的米黄色小卡片，一根红色丝线从字下面穿过。字必须写对。"
+    },
+    {
+      "name": "began.en",
+      "kind": "text",
+      "prompt": "A hand-lettered cartoon title that reads exactly \"Programming began on a loom.\" (five words and a full stop, nothing else), on two lines: \"Programming began\" above \"on a loom.\". Chunky bold letters, each in a different paper color, as if woven from thick silk threads; the full stop is a round punched hole. Spell it exactly, every letter."
+    },
+    {
+      "name": "began.zh",
+      "kind": "text",
+      "prompt": "一个手绘卡通标题，文字必须准确为「编程，从一台织机开始。」（九个汉字和两个标点，不要其他文字），排成两行：第一行「编程，」第二行「从一台织机开始。」。粗壮的字体，每个字是不同颜色的剪纸，像是用粗丝线织出来的；句号是一个打穿的圆孔。字必须写对，每一笔都要准确。"
+    }
+  ]
+}

@@ -76,7 +76,7 @@ icons come from npm and are copied into `site/vendor/` by `pnpm vendor`, or inli
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│ [logo]                                  [EN|中文]  (i)   │  top app bar, sticky
+│ [logo]                             [EN|中文]  (gh) (i)   │  top app bar, sticky
 ├──────────────────────────────────────────────────────────┤
 │ $ ls ~/open-source                                        │  prompt line, mono
 │ Things I build in the open.                               │  headline
@@ -103,9 +103,9 @@ the dialog uses a Material 3 dark tonal surface. On top of that:
 - **One acid-lime site accent** (`#d4ff3a`) for focus rings, the prompt cursor, the active
   language and links in the dialog.
 - **One accent per project**, chosen from its subject: 8800 electric blue (the Altair's front
-  panel), Leibniz brass, Huashuo jade, Meowlang violet, p5.animS p5's pink. The static tile is
-  tinted with it; the playing tile shows the animation in its own colours with an accent frame
-  and progress bar.
+  panel), Leibniz brass, Jacquard silk red, Huashuo jade, Meowlang violet, p5.animS p5's
+  pink. The static tile is tinted with it; the playing tile shows the animation in its own
+  colours with an accent frame and progress bar.
 - **Headline:** two lines of a fixed height (`--line`, the same in both languages), so
   switching language never moves the grid below it.
 - **Type:** Bricolage Grotesque (variable: weight, width, optical size) for titles and
@@ -348,7 +348,7 @@ the browser), sets `<html lang>`, the title and the description, and notifies th
 Strings live in `js/strings.js` (the page), `showcases/index.js` (titles, taglines, links)
 and each composition (its text). Tests check that every key has both languages.
 
-Project names in Chinese: Altair 8800 模拟器, 莱布尼茨步进计算器, 话说, 喵语言, p5.animS.
+Project names in Chinese: Altair 8800 模拟器, 莱布尼茨步进计算器, 提花织机模拟器, 话说, 喵语言, p5.animS.
 
 ## 8. Accessibility
 
@@ -356,8 +356,8 @@ Project names in Chinese: Altair 8800 模拟器, 莱布尼茨步进计算器, �
   "<title> on GitHub"; the Try it chip is a separate link above it. No nested links.
 - The animation stage is `aria-hidden`; the tile's title and tagline carry the meaning.
 - The About dialog is a native `<dialog>` (focus trap, Escape closes, focus returns).
-- The language switch is a pair of `aria-pressed` buttons; the top bar's icon button has a
-  translated label.
+- The language switch is a pair of `aria-pressed` buttons; the top bar's GitHub link and
+  icon button have translated labels.
 
 ## 9. Checking it
 
