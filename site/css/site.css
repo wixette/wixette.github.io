@@ -202,6 +202,9 @@ a {
   transition: background-color 200ms var(--ease);
   -webkit-user-select: none;
   user-select: none;
+  /* the GitHub link is one too: a control, not a link to drag or long-press */
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
 }
 
 .icon-btn:hover {

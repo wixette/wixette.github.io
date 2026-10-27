@@ -35,6 +35,9 @@ for (const b of document.querySelectorAll('.lang button')) {
   });
 }
 
+// The GitHub mark fills its box, Material's info glyph only 20 of its 24 px: 20 px matches them.
+$('#github-link').append(icon('github', 20));
+
 const aboutButton = /** @type {HTMLButtonElement} */ ($('#about-open'));
 aboutButton.append(icon('info'));
 initAbout(/** @type {HTMLDialogElement} */ ($('#about')), aboutButton);

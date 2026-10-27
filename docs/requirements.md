@@ -31,15 +31,15 @@ Status: agreed for v1 (2026-10-22). Changes are made here first, then in
 | # | Requirement |
 |---|---|
 | R3.1 | The logo: a tiny live-tile grid in the tiles' colours (`site/images/logo.svg`), also the favicon. |
-| R3.2 | The language switch, English / 中文. |
+| R3.2 | The language switch, English / 中文, and an icon link (the GitHub mark) to the owner's GitHub profile. |
 | R3.3 | A button that opens the About dialog: the logo, the owner's name and handle, a short bio and links to the owner's blog, GitHub, X, LinkedIn and Zhihu, each with its icon. All of it lives in one file (`site/js/profile.js`). The name takes the same height in both languages: two lines in English, one in Chinese. |
 
 ## R4. Showcase tiles
 
 | # | Requirement |
 |---|---|
-| R4.1 | One tile per project, in a fixed order. v1: 8800 Simulator, Leibniz's Stepped Reckoner, 话说 Huashuo, Meowlang, p5.animS. |
-| R4.2 | Some tiles are **heroes** and are shown larger than the others on every screen. v1: Leibniz and 8800. |
+| R4.1 | One tile per project, in a fixed order. v1: 8800 Simulator, Leibniz's Stepped Reckoner, Jacquard Loom Simulator, 话说 Huashuo, Meowlang, p5.animS. |
+| R4.2 | Some tiles are **heroes** and are shown larger than the others on every screen. v1: 8800, Leibniz and Jacquard. |
 | R4.3 | The tiles form a live-tile grid (Metro style) with **every row completely filled**, on wide desktops, normal desktops, tablets and phones. |
 | R4.4 | Static state: a still picture from the project's animation, styled to the page, with the project's title and a one-line tagline. |
 | R4.5 | Playing state: on hover or keyboard focus (desktop), the tile plays its animation, looping; leaving it pauses and returns to the static look. On touch screens, scrolling gives every tile its turn, one at a time, the last row included; a tap on a tile plays it, and a tap on the playing tile pauses it. |

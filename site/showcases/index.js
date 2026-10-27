@@ -44,6 +44,17 @@ export const SHOWCASES = [
     composition: () => import('./leibniz-stepped-reckoner/composition.js'),
   },
   {
+    id: 'jacquard-loom-simulator',
+    repo: 'https://github.com/wixette/jacquard-loom-simulator',
+    demo: { en: 'https://wixette.github.io/jacquard-loom-simulator/', zh: 'https://wixette.github.io/jacquard-loom-simulator/' },
+    emphasis: 'hero',
+    accent: '#ff5a4f',
+    title: { en: 'Jacquard Loom Simulator', zh: '提花织机模拟器' },
+    tagline: { en: 'The punched-card loom where programming began', zh: '打孔卡片织布机：编程从这里开始' },
+    tags: ['3D', 'History', 'Web'],
+    composition: () => import('./jacquard-loom-simulator/composition.js'),
+  },
+  {
     id: 'huashuo',
     repo: 'https://github.com/wixette/huashuo',
     demo: null,
