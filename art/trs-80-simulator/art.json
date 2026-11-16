@@ -1,0 +1,89 @@
+{
+  "items": [
+    {
+      "name": "ref",
+      "kind": "ref",
+      "prompt": "A late-1970s cast and props, in a warm 1970s palette (burnt orange, mustard, avocado green, chocolate brown, teal, cream, silver grey): (1) a twelve-year-old kid in 1977: a round bowl haircut, a striped orange-and-brown ringer T-shirt, flared jeans, sneakers; (2) the TRS-80 Model I computer system of 1977, seen from the front: a black-and-silver monitor (a small television-like screen in a black case with a silver-grey frame and a grille under the screen, a red power button at the top right) standing behind a long flat silver-grey keyboard unit with black keys, a pale yellow ENTER key and a numeric keypad on the right; (3) a grey portable cassette tape recorder with piano-key buttons and a cassette in its window; (4) a big plain brown cardboard box; (5) a messy pile of loose electronic parts, a bare circuit board and a soldering iron; (6) a green circuit board covered in black chips, with one bigger chip in the middle; (7) a modern silver laptop. No logos, no brand names, no text."
+    },
+    {
+      "name": "kid_wow",
+      "kind": "sprite",
+      "prompt": "The 1977 kid from the model sheet (bowl haircut, striped orange-and-brown ringer T-shirt, flared jeans, sneakers), full body, standing facing left, both hands on the cheeks, mouth open in amazement, eyes sparkling."
+    },
+    {
+      "name": "kid_type",
+      "kind": "sprite",
+      "prompt": "The 1977 kid from the model sheet (bowl haircut, striped orange-and-brown ringer T-shirt, flared jeans, sneakers), full body, standing in three-quarter view facing right, leaning forward with both hands held out low in front as if typing on a keyboard just out of the picture, tongue out in concentration. Only the kid, nothing else."
+    },
+    {
+      "name": "kid_cheer",
+      "kind": "sprite",
+      "prompt": "The 1977 kid from the model sheet (bowl haircut, striped orange-and-brown ringer T-shirt, flared jeans, sneakers), full body, facing front, jumping with both fists in the air and a huge grin. Nothing else in the picture."
+    },
+    {
+      "name": "computer",
+      "kind": "sprite",
+      "prompt": "The TRS-80 Model I system from the model sheet, seen straight from the front: the black-and-silver monitor with its screen, a grille under the screen and a red power button at the top right, standing behind the long flat silver-grey keyboard unit with black keys, a pale yellow ENTER key and a numeric keypad. The screen is a large plain rectangle of very dark charcoal green glass, completely empty: no picture, no text, no reflections. No logos, no labels, no text anywhere."
+    },
+    {
+      "name": "cassette",
+      "kind": "sprite",
+      "prompt": "The grey portable cassette tape recorder from the model sheet, alone, seen from the front and slightly above: a row of chunky piano-key buttons, a cassette visible in its window with its two reels, a small round speaker grille. No text, no logo."
+    },
+    {
+      "name": "box",
+      "kind": "sprite",
+      "prompt": "The big plain brown cardboard box from the model sheet, closed, seen from the front and slightly above, with a strip of packing tape across the top and a little drawn outline of a computer on its side. No text, no logo."
+    },
+    {
+      "name": "kit",
+      "kind": "sprite",
+      "prompt": "The messy pile of loose electronic parts from the model sheet, alone: a bare green circuit board, scattered resistors and capacitors, a coil of solder wire, and a soldering iron with a little curl of smoke. No text."
+    },
+    {
+      "name": "board",
+      "kind": "sprite",
+      "prompt": "The green circuit board from the model sheet, alone, seen flat from straight above: a wide rectangular board covered in rows of small black chips with silver legs and thin copper traces, one bigger long black chip in the middle. No text, no labels on the chips."
+    },
+    {
+      "name": "laptop",
+      "kind": "sprite",
+      "prompt": "The modern silver laptop from the model sheet, open, seen from the front, its screen showing a small 3D picture of the black-and-silver TRS-80 computer with its monitor and keyboard. No logo, no readable text."
+    },
+    {
+      "name": "bg_shop",
+      "kind": "bg",
+      "prompt": "An electronics shop in 1977: a plain cream wall with a wide band of burnt orange and brown 1970s stripes near the top, shelves of radios, speakers and walkie-talkies at the far left and far right edges, and a long wooden shop counter along the bottom edge. The middle of the wall is plain and calm. No signs, no text."
+    },
+    {
+      "name": "bg_den",
+      "kind": "bg",
+      "prompt": "A family den in 1977 in the evening: warm wood-panelled walls, an orange lamp glow at the far left edge, a bookshelf with a few records at the far right edge, and a wide wooden desk top along the bottom edge. The middle of the wall is plain and calm. No text."
+    },
+    {
+      "name": "bg_now",
+      "kind": "bg",
+      "prompt": "A young person's desk at night today: a deep navy watercolor wall with soft glowing neon accents in orange and cyan near the edges, a small potted plant and a desk lamp at the far right edge, and a light wooden desk top along the bottom edge. The middle is plain and calm."
+    },
+    {
+      "name": "box.en",
+      "kind": "text",
+      "prompt": "A hand-lettered 1970s-style cartoon title that reads exactly \"Ready out of the box!\" (five words, nothing else), on two lines: \"Ready out\" above \"of the box!\". Chunky groovy rounded letters in burnt orange, mustard, avocado green and chocolate brown; the letter O of \"box\" is the lid of a little open cardboard box. Spell it exactly."
+    },
+    {
+      "name": "box.zh",
+      "kind": "text",
+      "prompt": "一个七十年代复古风格的手绘卡通标题，文字必须准确为「开箱就能用！」（五个汉字加感叹号，不要其他文字），排成一行。圆润粗壮的复古字体，颜色用焦橙、芥末黄、牛油果绿和巧克力棕，“箱”字旁边画一个打开的小纸箱。字必须写对。"
+    },
+    {
+      "name": "on.en",
+      "kind": "text",
+      "prompt": "A hand-lettered cartoon title that reads exactly \"Switch it on!\" (three words, nothing else), on one line. Chunky bold rounded letters mixing a 1970s groovy feel with a glowing green computer screen: burnt orange, mustard and avocado green with a soft phosphor-green glow outline; the dot of the exclamation mark is a small red power button. Spell it exactly."
+    },
+    {
+      "name": "on.zh",
+      "kind": "text",
+      "prompt": "一个手绘卡通标题，文字必须准确为「开机试试！」（四个汉字加感叹号，不要其他文字），排成一行。圆润粗壮的字体，把七十年代复古感和发光的绿色电脑屏幕混在一起：焦橙、芥末黄和牛油果绿，外面一圈柔和的荧光绿辉光；感叹号的圆点是一颗小小的红色电源按钮。字必须写对。"
+    }
+  ]
+}
