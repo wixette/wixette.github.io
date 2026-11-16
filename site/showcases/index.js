@@ -33,6 +33,17 @@ export const SHOWCASES = [
     composition: () => import('./8800-simulator/composition.js'),
   },
   {
+    id: 'trs-80-simulator',
+    repo: 'https://github.com/wixette/trs-80-simulator',
+    demo: { en: 'https://wixette.github.io/trs-80-simulator/', zh: 'https://wixette.github.io/trs-80-simulator/' },
+    emphasis: 'hero',
+    accent: '#4fd8ff',
+    title: { en: 'TRS-80 Simulator', zh: 'TRS-80 模拟器' },
+    tagline: { en: 'The 1977 computer you could buy in a shop, in 3D', zh: '1977 年开箱即用的家用电脑，3D 版' },
+    tags: ['Z80', 'BASIC', '3D'],
+    composition: () => import('./trs-80-simulator/composition.js'),
+  },
+  {
     id: 'leibniz-stepped-reckoner',
     repo: 'https://github.com/wixette/leibniz-stepped-reckoner',
     demo: { en: 'https://wixette.github.io/leibniz-stepped-reckoner/', zh: 'https://wixette.github.io/leibniz-stepped-reckoner/' },

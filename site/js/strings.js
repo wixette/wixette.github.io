@@ -5,7 +5,7 @@
 export const STRINGS = {
   en: {
     'meta.title': 'wixette · open source projects',
-    'meta.description': "Live tiles of wixette's open source projects: an Altair 8800 simulator, Leibniz's stepped reckoner and a Jacquard loom in 3D, multi-voice audiobooks, a language for cats and more.",
+    'meta.description': "Live tiles of wixette's open source projects: Altair 8800 and TRS-80 simulators, Leibniz's stepped reckoner and a Jacquard loom in 3D, multi-voice audiobooks, a language for cats and more.",
     'lang.label': 'Language',
     'github.open': 'wixette on GitHub',
     'about.open': 'About me',
@@ -26,7 +26,7 @@ export const STRINGS = {
   },
   zh: {
     'meta.title': 'wixette 的开源作品',
-    'meta.description': 'wixette 的开源作品：Altair 8800 模拟器、3D 莱布尼茨步进计算器和提花织机、多角色有声书、写给猫的编程语言，还有更多。',
+    'meta.description': 'wixette 的开源作品：Altair 8800 和 TRS-80 模拟器、3D 莱布尼茨步进计算器和提花织机、多角色有声书、写给猫的编程语言，还有更多。',
     'lang.label': '语言',
     'github.open': '我的 GitHub 主页',
     'about.open': '关于我',
