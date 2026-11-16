@@ -103,7 +103,7 @@ the dialog uses a Material 3 dark tonal surface. On top of that:
 - **One acid-lime site accent** (`#d4ff3a`) for focus rings, the prompt cursor, the active
   language and links in the dialog.
 - **One accent per project**, chosen from its subject: 8800 electric blue (the Altair's front
-  panel), Leibniz brass, Jacquard silk red, TRS-80 phosphor cyan, Huashuo jade, Meowlang
+  panel), TRS-80 phosphor cyan, Leibniz brass, Jacquard silk red, Huashuo jade, Meowlang
   violet, p5.animS p5's pink. The static tile is tinted with it; the playing tile shows the
   animation in its own colours with an accent frame and progress bar.
 - **Headline:** two lines of a fixed height (`--line`, the same in both languages), so
@@ -348,7 +348,7 @@ the browser), sets `<html lang>`, the title and the description, and notifies th
 Strings live in `js/strings.js` (the page), `showcases/index.js` (titles, taglines, links)
 and each composition (its text). Tests check that every key has both languages.
 
-Project names in Chinese: Altair 8800 模拟器, 莱布尼茨步进计算器, 提花织机模拟器, TRS-80 模拟器, 话说, 喵语言, p5.animS.
+Project names in Chinese: Altair 8800 模拟器, TRS-80 模拟器, 莱布尼茨步进计算器, 提花织机模拟器, 话说, 喵语言, p5.animS.
 
 ## 8. Accessibility
 
