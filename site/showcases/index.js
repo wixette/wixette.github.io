@@ -36,7 +36,7 @@ export const SHOWCASES = [
     id: 'trs-80-simulator',
     repo: 'https://github.com/wixette/trs-80-simulator',
     demo: { en: 'https://wixette.github.io/trs-80-simulator/', zh: 'https://wixette.github.io/trs-80-simulator/' },
-    emphasis: 'normal',
+    emphasis: 'hero',
     accent: '#4fd8ff',
     title: { en: 'TRS-80 Simulator', zh: 'TRS-80 模拟器' },
     tagline: { en: 'The 1977 computer you could buy in a shop, in 3D', zh: '1977 年开箱即用的家用电脑，3D 版' },

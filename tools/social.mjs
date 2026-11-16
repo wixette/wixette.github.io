@@ -77,7 +77,15 @@ try {
   await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: false });
   await until(() => fetch(`http://127.0.0.1:${SITE_PORT}/site/`).then((r) => r.ok), 'the site server');
   await send('Page.navigate', { url: `http://127.0.0.1:${SITE_PORT}/site/?lang=en` });
-  await until(() => evaluate(`document.querySelectorAll('.tile').length > 0 && document.querySelectorAll('.tile').length === document.querySelectorAll('.tile-stage.ready').length`), 'the tiles');
+  // Every tile in the captured area has its poster in. Tiles further down are only built
+  // when scrolled near, so they are not waited for.
+  await until(
+    () => evaluate(`(() => {
+      const shown = [...document.querySelectorAll('.tile')].filter((t) => t.getBoundingClientRect().top < ${height});
+      return shown.length > 0 && shown.every((t) => t.querySelector('.tile-stage.ready'));
+    })()`),
+    'the tiles',
+  );
   // the stages fade in over 600 ms
   await sleep(1200);
   const shot = await send('Page.captureScreenshot', { format: 'png', clip: { x: 0, y: 0, width, height, scale: 0.6 } });

@@ -39,7 +39,7 @@ Status: agreed for v1 (2026-10-22). Changes are made here first, then in
 | # | Requirement |
 |---|---|
 | R4.1 | One tile per project, in a fixed order. v1: 8800 Simulator, TRS-80 Simulator, Leibniz's Stepped Reckoner, Jacquard Loom Simulator, 话说 Huashuo, Meowlang, p5.animS. |
-| R4.2 | Some tiles are **heroes** and are shown larger than the others on every screen. v1: 8800, Leibniz and Jacquard. |
+| R4.2 | Some tiles are **heroes** and are shown larger than the others on every screen. v1: 8800, TRS-80, Leibniz and Jacquard. |
 | R4.3 | The tiles form a live-tile grid (Metro style) with **every row completely filled**, on wide desktops, normal desktops, tablets and phones. |
 | R4.4 | Static state: a still picture from the project's animation, styled to the page, with the project's title and a one-line tagline. |
 | R4.5 | Playing state: on hover or keyboard focus (desktop), the tile plays its animation, looping; leaving it pauses and returns to the static look. On touch screens, scrolling gives every tile its turn, one at a time, the last row included; a tap on a tile plays it, and a tap on the playing tile pauses it. |

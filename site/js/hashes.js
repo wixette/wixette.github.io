@@ -5,7 +5,7 @@ export const HASHES = {
   'images/apple-touch-icon.png': 'eba893756d',
   'images/favicon.svg': '12d4cbe1ce',
   'images/logo.svg': '12d4cbe1ce',
-  'images/og.png': 'c5fcceb8cd',
+  'images/og.png': '38632212c3',
   'showcases/8800-simulator/assets/altair.webp': '0737c6fcec',
   'showcases/8800-simulator/assets/bg_dorm.webp': '95310b3e46',
   'showcases/8800-simulator/assets/bg_garage.webp': '40389f0a62',
